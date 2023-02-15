@@ -2,3 +2,7 @@
   aspect-ratio: 16/9;
   width: 100%;
 }
+
+#game_background {
+  background-image: url("C:\Users\user\Documents\GitHub\spillepladen\Images\nautre.jpg");
+}
