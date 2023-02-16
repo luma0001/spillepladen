@@ -57,4 +57,12 @@ body {
   z-index: 3;
 }
 
+.allsprites {
+  width: 60%;
+}
+.sprite {
+  width: 100;
+  z-index: 100;
+}
+
 /* elementer */
