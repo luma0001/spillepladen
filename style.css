@@ -25,7 +25,7 @@ body {
   position: absolute;
   top: 0%;
   left: 0%;
-  background-image: url(C:\Users\user\Documents\GitHub\spillepladen\Images\nautre.jpg);
+  background-image: url(Images/nautre.jpg);
   background-size: cover;
   z-index: 1;
 }
@@ -36,33 +36,69 @@ body {
   position: absolute;
   top: 0%;
   left: 0%;
-  background-image: url(Images\castlecomplete.png);
+}
+
+#castle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  background-image: url(Images/castlefull500.png);
   z-index: 2;
 }
 
 #wall {
-  background-image: url(Images\castlefront.png);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  background-image: url(Images/casltecentertower.png);
   z-index: 30;
 }
 #sidetower {
-  background-image: url(Images\casltesideower.png);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-image: url(Images/casltesideower.png);
   z-index: 5;
 }
 #centertower {
-  background-image: url(Images\casltecentertower.png);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  background-image: url(Images/casltecentertower.png);
   z-index: 5;
 }
 #toptower {
-  background-image: url(Images\castletop.png);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  background-image: url(Images/castletop.png);
   z-index: 3;
 }
 
 .allsprites {
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
   width: 60%;
+  z-index: 40;
 }
 .sprite {
-  width: 100;
-  z-index: 100;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  z-index: 40;
 }
 
 /* elementer */
