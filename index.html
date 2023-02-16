@@ -11,34 +11,42 @@
   <body>
     <main id="screen">
       <div id="game">
-        <div id="game_background"></div>
-        <!-- image of nature and stuff -->
-        <div id="game_elements">
-          <div id="figur_container01">
-            <img id="figur_spirte01" />
-          </div>
-          <!-- pessents
-            arrow
-            knights
-            lives
-            points
-            timer -->
+        <div id="game_background">
+          <!-- image of nature and stuff -->
         </div>
-        <div id="game_foreground">
-          <img
-            id="castle_background"
-            scr="C:\Users\user\Documents\GitHub\spillepladen\Images\castlecomplete.png"
-          />
 
-          <img id="castle_background" scr="Images\castletop.png" />
+        <!-- all the targets on screen -->
+        <div id="game_elements">
+          <!-- enemy knight no.1 -->
+          <div id="sprite_container01">
+            <img id="sprite01" scr="Images\enemies01.png" alt="knight1" />
+          </div>
+          <!-- enemy knight no.2 -->
+          <div id="sprite_container02">
+            <img id="sprite02" scr="Images\enemies02.png" alt="knight2" />
+          </div>
+        </div>
+
+        <div id="game_foreground">
+          <div id="wall"></div>
+          <div id="sidetower"></div>
+          <div id="centertower"></div>
+          <div id="toptower"></div>
+          <!-- <img id="castle_background" scr="C:\Users\user\Documents\GitHub\spillepladen\Images\castlecomplete.png"
+          /> <img id="castle_background" scr="Images\castletop.png" /> -->
+        </div>
+
+        <div id="game_ui">
+          <!-- images of health, time, chances -->
         </div>
       </div>
-    </main>
-    <div id="start_screen"></div>
-    <div id="game_over"></div>
-    <div id="level_complete"></div>
 
-    <!-- 
+      <div id="start_screen"></div>
+      <div id="game_over"></div>
+      <div id="level_complete"></div>
+    </main>
+
+    <!-- CREDITS
 
     Slots mur:
 https://www.freepik.com/free-vector/medieval-castle-wall-fairytale-fortress-building_32665687.htm#query=castle%20cartoon&position=1&from_view=search&track=ais
@@ -52,6 +60,11 @@ https://www.freepik.com/free-vector/collection-characters-with-armor-flat-design
 
 nature:
 https://www.freepik.com/free-vector/blank-nature-park-landscape-scene-daytime_16879862.htm#query=nature%20scene%20cartoon&position=5&from_view=search&track=ais
+
+ui:
+https://www.freepik.com/free-vector/game-ui-kit-set-user-interface-gui-build-2d-games-casual-game-vector-can-be-used-mobile-web-games-vector-illustration_25273745.htm#query=ui%20element&position=10&from_view=search&track=ais
+
+
 
 -->
   </body>

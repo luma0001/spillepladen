@@ -1,8 +1,60 @@
+/* baggrunde mm. */
+
+body {
+  background-color: blueviolet;
+  /* background-image: url("C:\Users\user\Documents\GitHub\spillepladen\Images\nautre.jpg"); */
+}
+
 #screen {
+  position: relative;
   aspect-ratio: 16/9;
   width: 100%;
 }
 
-#game_background {
-  background-image: url("C:\Users\user\Documents\GitHub\spillepladen\Images\nautre.jpg");
+#game {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
 }
+
+#game_background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-image: url(C:\Users\user\Documents\GitHub\spillepladen\Images\nautre.jpg);
+  background-size: cover;
+  z-index: 1;
+}
+
+#game_foreground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-image: url(Images\castlecomplete.png);
+  z-index: 2;
+}
+
+#wall {
+  background-image: url(Images\castlefront.png);
+  z-index: 30;
+}
+#sidetower {
+  background-image: url(Images\casltesideower.png);
+  z-index: 5;
+}
+#centertower {
+  background-image: url(Images\casltecentertower.png);
+  z-index: 5;
+}
+#toptower {
+  background-image: url(Images\castletop.png);
+  z-index: 3;
+}
+
+/* elementer */
