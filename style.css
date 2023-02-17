@@ -5,6 +5,10 @@ body {
   /* background-image: url("C:\Users\user\Documents\GitHub\spillepladen\Images\nautre.jpg"); */
 }
 
+img {
+  width: 100%;
+}
+
 #screen {
   position: relative;
   aspect-ratio: 16/9;
@@ -25,10 +29,12 @@ body {
   position: absolute;
   top: 0%;
   left: 0%;
-  background-image: url(Images/nautre.jpg);
+  /* background-image: url(Images/nautre.jpg); */
   background-size: cover;
   z-index: 1;
 }
+
+/* foregrounds */
 
 #game_foreground {
   width: 100%;
@@ -42,9 +48,9 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: -10%;
-  left: -10%;
-  background-image: url(Images/castlefull500.png);
+  top: 50%;
+  left: 50%;
+  /* background-image: url(Images/castlefull500.png); */
   z-index: 2;
 }
 
@@ -52,53 +58,71 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: -10%;
-  left: -10%;
-  background-image: url(Images/casltecentertower.png);
+  top: 50%;
+  left: 50%;
+  /* background-image: url(Images/wall500.png); */
   z-index: 30;
 }
+
 #sidetower {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0%;
-  left: 0%;
-  background-image: url(Images/casltesideower.png);
+  top: 50%;
+  left: 50%;
+  /* background-image: url(Images/casltesideower.png); */
   z-index: 5;
 }
 #centertower {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: -10%;
-  left: -10%;
-  background-image: url(Images/casltecentertower.png);
+  top: 50%;
+  left: 50%;
+  /* background-image: url(Images/casltecentertower.png); */
   z-index: 5;
 }
+
 #toptower {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 20%;
-  left: 20%;
-  background-image: url(Images/castletop.png);
+  top: 50%;
+  left: 50%;
+  /* background-image: url(Images/castletop.png); */
   z-index: 3;
 }
 
-.allsprites {
-  top: 0%;
-  left: 0%;
-  height: 100%;
-  width: 100%;
-  width: 60%;
-  z-index: 40;
-}
-.sprite {
-  top: 0%;
-  left: 0%;
-  height: 100%;
-  width: 100%;
-  z-index: 40;
+/* elementer */
+
+#sprite_container01 {
+  width: 20%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  z-index: 51;
 }
 
-/* elementer */
+#sprite_container02 {
+  width: 20%;
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  z-index: 52;
+}
+
+#sprite_container03 {
+  width: 20%;
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  z-index: 53;
+}
+
+.sprite {
+  height: 100%;
+  width: 100%;
+}
+
+/* animations */
+/* make them go up and down and fall/ tip over... */
