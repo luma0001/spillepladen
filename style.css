@@ -1,9 +1,8 @@
 /* baggrunde mm. */
 
 body {
-  background-color: blueviolet;
-  background-image: url("Images/nautre.jpg");
-  background-size: cover;
+  /* background-color: blueviolet;
+  background-size: cover; */
 }
 
 img {
@@ -32,6 +31,9 @@ img {
   position: absolute;
   top: 0%;
   left: 0%;
+  background-image: url("Images/nature.png");
+  background-repeat: no-repeat;
+
   /* background-image: url(Images/nautre.jpg); */
   background-size: cover;
   z-index: 1;
@@ -48,11 +50,11 @@ img {
 }
 
 #castle {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: -20%;
+  left: 30%;
   /* background-image: url(Images/castlefull500.png); */
   z-index: 2;
 }
@@ -77,11 +79,11 @@ img {
   z-index: 5;
 }
 #centertower {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: -20%;
+  left: 30%;
   /* background-image: url(Images/casltecentertower.png); */
   z-index: 5;
 }
@@ -99,19 +101,19 @@ img {
 /* elementer */
 
 #sprite_container01 {
-  width: 50%;
+  width: 30%;
   position: absolute;
-  top: 0%;
-  left: 0%;
+  top: 20%;
+  left: 27%;
   z-index: 3;
 }
 
 #sprite_container02 {
-  width: 20%;
+  width: 30%;
   position: absolute;
-  top: 40%;
-  left: 20%;
-  z-index: 52;
+  top: 15%;
+  left: 72%;
+  z-index: 3;
 }
 
 #sprite_container03 {
@@ -129,3 +131,22 @@ img {
 
 /* animations */
 /* make them go up and down and fall/ tip over... */
+
+.updown {
+  animation-name: updown;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 10%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
