@@ -2,13 +2,16 @@
 
 body {
   background-color: blueviolet;
-  /* background-image: url("C:\Users\user\Documents\GitHub\spillepladen\Images\nautre.jpg"); */
+  background-image: url("Images/nautre.jpg");
+  background-size: cover;
 }
 
 img {
   width: 100%;
 }
 
+/* Hvorfor er min skærmbilledet så stort? */
+/* d.14 put i grid her */
 #screen {
   position: relative;
   aspect-ratio: 16/9;
@@ -55,21 +58,21 @@ img {
 }
 
 #wall {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0%;
+  left: 30%;
   /* background-image: url(Images/wall500.png); */
   z-index: 30;
 }
 
 #sidetower {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: -20%;
+  left: 30%;
   /* background-image: url(Images/casltesideower.png); */
   z-index: 5;
 }
@@ -96,11 +99,11 @@ img {
 /* elementer */
 
 #sprite_container01 {
-  width: 20%;
+  width: 50%;
   position: absolute;
-  top: 30%;
-  left: 30%;
-  z-index: 51;
+  top: 0%;
+  left: 0%;
+  z-index: 3;
 }
 
 #sprite_container02 {
