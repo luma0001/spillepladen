@@ -144,9 +144,29 @@ img {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(0, 10%);
+    transform: translate(0, 100%);
   }
   100% {
     transform: translate(0, 0);
   }
+}
+
+.fade_out {
+  animation-name: fade_out;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes fade_out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.paused {
+  animation-duration: paused;
 }
