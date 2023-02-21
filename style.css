@@ -168,5 +168,5 @@ img {
 }
 
 .paused {
-  animation-duration: paused;
+  animation-play-state: paused;
 }
