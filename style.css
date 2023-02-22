@@ -23,6 +23,7 @@ img {
   height: 100%;
   top: 0%;
   left: 0%;
+  grid-area: 1/1;
 }
 
 #game_background {
@@ -33,6 +34,7 @@ img {
   left: 0%;
   background-image: url("Images/nature.png");
   background-repeat: no-repeat;
+  grid-area: 1 / 1;
 
   /* background-image: url(Images/nautre.jpg); */
   background-size: cover;
