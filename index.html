@@ -12,10 +12,10 @@
     
 
 
+
     <main id="screen">
       <div id="game">
         <div id="game_background">
-          <!-- image of nature and stuff -->
         </div>
 
         <div id="game_elements">
@@ -25,8 +25,17 @@
 
           <!-- klassen loades ikke... -->
           <div id="sprite_container02" class="updown">
-            <img src="Images/enemy2x500.png"/>
+            <img id="sprite02" src="Images/enemy2x500.png"/>
           </div>
+
+          <div id="sprite_container03">
+            <img id="sprite03" src="Images/womanX.png">
+          </div>
+
+          <div id="sprite_container04">
+           <img id="sprite04" src="Images/priestX.png">
+          </div>
+
 
           <!-- 
           <div  id="sprite_container03">
@@ -53,23 +62,27 @@
 
         <div id="game_ui">
           <!-- images of health, time, chances -->
-          <img id="pointman" src="Images/enemy1x500.png"/>
-          <div id="points">p</div>
+          <div id="point_board">
+            <img id="pointman" src="Images/enemy1x500.png"/>
+          <span id="points">0</span>
+          </div>
+          
+
+
+
+          
         </div>
         <div id="hp_container1">
-<div id="hp_sprite1">
-  <img src="Images/lifeElement.png">
+  <img id="hp_sprite1" src="Images/lifeElement.png">
 </div>
-        </div>
-        <div id="hp_container2">
-<div id="hp_sprite">
-  <img src="Images/lifeElement.png">
-</div>
+ 
+<div id="hp_container2">
+
+  <img id="hp_sprite2" src="Images/lifeElement.png">
+
         </div>
         <div id="hp_container3">
-<div id="hp_sprite">
-    <img src="Images/lifeElement.png">
-</div>
+    <img id="hp_sprite3" src="Images/lifeElement.png">
         </div>
 
       </div>
