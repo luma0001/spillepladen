@@ -91,7 +91,7 @@ img {
   z-index: 40;
 }
 
-/* elementer */
+/* active elements */
 
 #sprite_container01 {
   width: 10%;
@@ -114,7 +114,7 @@ img {
   position: absolute;
   top: 40%;
   left: 60%;
-  z-index: 53;
+  z-index: 49;
 }
 
 #sprite_container04 {
@@ -122,12 +122,26 @@ img {
   position: absolute;
   top: 20%;
   left: 50%;
-  z-index: 30;
+  z-index: 53;
 }
 
 .sprite {
   height: 100%;
   width: 100%;
+}
+
+/* UI ELEMENTS */
+
+#point_display {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.1em;
+}
+
+#points {
+  white-space: nowrap;
+  text-align: right;
+  z-index: 90;
 }
 
 #pointman {
