@@ -22,11 +22,25 @@ function start() {
 
 function enemy01Clicked() {
   console.log("enemy01Clicked");
+
+  document
+    .querySelector("#sprite_container01")
+    .removeEventListener("click", enemy01Clicked);
+
+  document.querySelector("#sprite_container01").classList.add("fade_out");
+
   incrementPoints();
 }
 
 function enemy02Clicked() {
   console.log("enemy02Clicked");
+
+  document
+    .querySelector("#sprite_container02")
+    .removeEventListener("click", enemy02Clicked);
+
+  document.querySelector("#sprite_container02").classList.add("paused");
+
   incrementPoints();
 }
 
@@ -46,9 +60,14 @@ function friendly01Clicked() {
 
 function friendly02Clicked() {
   console.log("friendly02Clicked");
+  looseLife();
 }
 
 function looseLife() {
+  // if (lives == 1) {
+  //   document.querySelector("#heart_container1").classList.add("pulse");
+  // }
+
   if (lives > 0) {
     removeHeart();
     lives--;
@@ -58,8 +77,8 @@ function looseLife() {
 }
 
 function removeHeart() {
-  console.log("HP: " + lives);
-  // document.querySelector("hp_container" + lives).classList.add("...");
+  console.log(`#hp_container${lives}`);
+  document.querySelector(`#hp_container${lives}`).classList.add("gone");
 }
 
 function gameOver() {
