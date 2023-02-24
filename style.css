@@ -36,8 +36,6 @@ img {
   background-image: url("Images/nature.png");
   background-repeat: no-repeat;
   grid-area: 1 / 1;
-
-  /* background-image: url(Images/nautre.jpg); */
   background-size: cover;
   z-index: 1;
 }
@@ -58,36 +56,42 @@ img {
   position: absolute;
   top: -9%;
   left: 20%;
-  /* background-image: url(Images/castlefull500.png); */
-  z-index: 20;
+  z-index: 10;
 }
 
 #wall {
   width: 62%;
   height: 62%;
   position: absolute;
-  top: -13.5%;
+  top: 60%;
   left: 18.9%;
-  /* background-image: url(Images/wall500.png); */
   z-index: 50;
 }
 
-#sidetower {
-  width: 55%;
-  height: 55%;
+#leftTower {
+  width: 10%;
+  height: 10%;
   position: absolute;
-  top: 4.1%;
-  left: 22.3%;
-  /* background-image: url(Images/casltesideower.png); */
+  top: 50.1%;
+  left: 22%;
   z-index: 30;
 }
+
+#rightTower {
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  top: 51.1%;
+  left: 67.5%;
+  z-index: 30;
+}
+
 #centertower {
   width: 15%;
   height: 15%;
   position: absolute;
   top: 43%;
   left: 41.9%;
-  /* background-image: url(Images/casltecentertower.png); */
   z-index: 40;
 }
 
@@ -98,7 +102,7 @@ img {
   position: absolute;
   top: 40%;
   left: 23%;
-  z-index: 3;
+  z-index: 20;
 }
 
 #sprite_container02 {
@@ -106,7 +110,7 @@ img {
   position: absolute;
   top: 40%;
   left: 68%;
-  z-index: 3;
+  z-index: 20;
 }
 
 #sprite_container03 {
@@ -114,15 +118,15 @@ img {
   position: absolute;
   top: 40%;
   left: 60%;
-  z-index: 49;
+  z-index: 40;
 }
 
 #sprite_container04 {
   width: 6%;
   position: absolute;
-  top: 20%;
+  top: 40%;
   left: 50%;
-  z-index: 53;
+  z-index: 40;
 }
 
 .sprite {
@@ -184,6 +188,9 @@ img {
 
 /* animations */
 /* make them go up and down and fall/ tip over... */
+
+.hide {
+}
 
 .updown {
   animation-name: updown;
