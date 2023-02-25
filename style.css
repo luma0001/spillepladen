@@ -214,6 +214,7 @@ img {
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: 1;
+  transform-origin: 50% 50%;
 }
 
 @keyframes gone {
@@ -223,6 +224,13 @@ img {
   100% {
     transform: rotate(360deg) scale(0);
   }
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes hide {
 }
 
 /* FIGURES ANIMATIONER */

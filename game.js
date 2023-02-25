@@ -7,7 +7,7 @@ let lives = 3;
 
 function start() {
   //aktiver basis animationerne
-  // document.querySelector("#sprite_container02").classList.add("updown");
+  document.querySelector("#sprite_container02").classList.add("updown");
 
   //gør sprites klikbare
   document
@@ -58,13 +58,15 @@ function enemy02Clicked() {
   incrementPoints();
 }
 
+// Der mangler en form for reseet/respawn så den ikke afspiller hvor den stoppede...
+
 function enemyMoved() {
   // animation end fjernes
   document
     .querySelector("#sprite_container02")
     .removeEventListener("animationend", enemyMoved);
   // fjern fade_out
-  document.querySelector("#sprite_container02").classList.remove("fade_out");
+  document.querySelector("#sprite02").classList.remove("fade_out");
   //fjren paused
   document.querySelector("#sprite_container02").classList.remove("paused");
 
@@ -77,7 +79,6 @@ function enemyMoved() {
   document
     .querySelector("#sprite_container02")
     .addEventListener("click", enemy02Clicked);
-  //NB virker kun 1 gang...
 }
 
 function incrementPoints() {
@@ -100,19 +101,35 @@ function friendly02Clicked() {
 }
 
 function looseLife() {
-  if (lives > 1) {
-    removeHeart();
+  let lifenum = `#hp_container${lives}`;
+
+  if (lives > 0) {
+    removeHeart(lifenum);
     lives--;
-  } else if (lives == 1) {
-    document.querySelector("#heart_container1").classList.add("pulse");
-  } else {
+  }
+  // else if (lives == 1) {
+  //   document.querySelector("#heart_container1").classList.add("pulse");
+  // }
+  else {
     gameOver();
   }
 }
 
-function removeHeart() {
-  console.log(`#hp_container${lives}`);
+function removeHeart(lifenum) {
+  console.log(lifenum);
   document.querySelector(`#hp_container${lives}`).classList.add("gone");
+  document
+    .querySelector(`#hp_container${lives}`)
+    .addEventListener("animationend", hideHeart);
+}
+
+function hideHeart(lifenum) {
+  console.log("nu" + lifenum);
+
+  document
+    .querySelector(`#hp_container${lives}`)
+    .removeEventListener("animationend", hideHeart);
+  document.querySelector(`#hp_container${lives}`).classList.add("hide");
 }
 
 function gameOver() {
