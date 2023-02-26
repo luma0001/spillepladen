@@ -5,16 +5,24 @@
 // mangler en vinder funktion og skærm
 // manger en pæn game over med reset
 
-window.addEventListener("load", start);
+window.addEventListener("load", preStart);
 
 function preStart() {
+  //søger for alt er stoppet
+  stopAll();
+  //gør "START SPILLET fletet synligt"
   document.querySelector("#start_screen").classList.remove("hidden");
 }
 
-let points = 0;
+let points = 8;
 let lives = 3;
 
 function start() {
+  //gem alle 'overlay' skærme
+  document.querySelector("#start_screen").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+
   console.log("spillet er startet");
   //aktiver basis animationerne
   document.querySelector("#sprite_container01").classList.add("right_left");
@@ -181,7 +189,8 @@ function incrementPoints() {
 
 // opdater det nye point
 function displayPoints() {
-  if (points < 10) {
+  console.log("you've won");
+  if (points > 10) {
     victory();
   } else {
     document.querySelector("#points").textContent = points;
@@ -308,13 +317,21 @@ function hideHeart() {
     gameOver();
   }
 }
-
-function victory() {
-  document.querySelector("#level_complete").classList.reomve("#hidden");
-}
+-function victory() {
+  console.log("level complete");
+  //BLIVER ALDRIG AKTIVERET - HVORFOR?!
+  document.querySelector("#level_complete").classList.remove("hidden");
+  stopAll();
+};
 
 function gameOver() {
   console.log("The game is lost");
+  document.querySelector("#game_over").classList.remove("hidden");
+  stopAll();
+}
+
+function stopAll() {
+  console.log("stopAll");
 
   //deaktiver basis animationerne
   document.querySelector("#sprite_container01").classList.remove("right_left");
@@ -336,6 +353,4 @@ function gameOver() {
   document
     .querySelector("#sprite_container04")
     .removeEventListener("click", friendly02Clicked);
-
-  document.querySelector("#game_over").classList.remove("hidden");
 }

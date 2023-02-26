@@ -6,6 +6,10 @@ body {
   background-size: cover; */
 }
 
+p {
+  color: white;
+}
+
 img {
   width: 100%;
 }
@@ -149,7 +153,9 @@ img {
 
 /* UI ELEMENTS */
 
+/* Hvordan pokker fungere det her mon? */
 #point_display {
+  left: 1%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 0.1em;
@@ -162,8 +168,6 @@ img {
 }
 
 #pointman {
-  top: 1%;
-  left: -1%;
   height: 15%;
   width: 10%;
   position: absolute;

@@ -12,8 +12,12 @@
 
     <main id="screen">
       <div id="game">
+       
         <div id="game_background">
         </div>
+
+
+
 
         <div id="game_elements">
           <div id="sprite_container01">
@@ -75,27 +79,25 @@
         <div id="game_ui">
           <!-- images of health, time, chances -->
          
-          <div id="point_display">
-         
-            <img id="pointman" src="Images/enemy1x500.png"/>
+          <div id="point_display">       
+          <img id="pointman" src="Images/enemy1x500.png"/>
           <span id="points"> 0 </span>
           </div>
         
-        </div>
-        
-<div id="hp_display">
+          
+          <div id="hp_display">
+            
          <div id="hp_container1">
   <img id="hp_sprite1" src="Images/lifeElement.png">
 </div>
  
 <div id="hp_container2">
-
   <img id="hp_sprite2" src="Images/lifeElement.png">
+</div>
 
-        </div>
-        <div id="hp_container3">
+<div id="hp_container3">
     <img id="hp_sprite3" src="Images/lifeElement.png">
-        </div>
+</div>
 
 </div>
 
@@ -103,17 +105,22 @@
  
       </div>
 
-      <div id="start_screen" class ="hidden"></div>
+      <div id="start_screen" class ="hidden">
       <img src="Images/screens.jpg">
+    <button onclick="start()">START</button>  
+    </div>
 
       <div id="game_over" class ="hidden">
         <img src="Images/screens.jpg">
-
+      <button onclick="start()">RESTART</button>
       </div>
       <div id="level_complete" class ="hidden">
         <img src="Images/screens.jpg">
-
+              <button onclick="start()">RESTART</button>
       </div>
+    </div>
+
+      
     </main>
 
     <!-- CREDITS
@@ -145,10 +152,7 @@ https://www.freepik.com/free-vector/blank-vintage-scroll-paper_21301088.htm#quer
 
 -->
 
-
-
-
-<!-- <script src="game.js"></script> -->
-<script src="test.js"></script>
+<script src="game.js"></script>
+<!-- <script src="test.js"></script> -->
   </body>
 </html>
