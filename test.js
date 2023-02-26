@@ -1,11 +1,21 @@
 "use strict";
 
+// noter:
+// mangler en start skærm
+// mangler en vinder funktion og skærm
+// manger en pæn game over med reset
+
 window.addEventListener("load", start);
 
-let points = 1;
+function preStart() {
+  document.querySelector("#start_screen").classList.remove("hidden");
+}
+
+let points = 0;
 let lives = 3;
 
 function start() {
+  console.log("spillet er startet");
   //aktiver basis animationerne
   document.querySelector("#sprite_container01").classList.add("right_left");
   document.querySelector("#sprite_container02").classList.add("updown");
@@ -34,13 +44,44 @@ function start() {
 function enemy01Clicked() {
   console.log("enemy01Clicked");
 
-  // document
-  //   .querySelector("#sprite_container01")
-  //   .removeEventListener("click", enemy01Clicked);
+  // gør den ikke klikbar
+  document
+    .querySelector("#sprite_container01")
+    .removeEventListener("click", enemy01Clicked);
 
-  // document.querySelector("#sprite_container01").classList.add("fade_out");
+  //stop animation
+  document.querySelector("#sprite_container01").classList.add("paused");
+
+  // fjern sprite
+  document.querySelector("#sprite01").classList.add("fade_out");
+
+  // tilføjer animation end til at kalde næste funktion....
+  document
+    .querySelector("#sprite_container01")
+    .addEventListener("animationend", enemy01Moved);
 
   incrementPoints();
+}
+
+function enemy01Moved() {
+  // animation end fjernes
+  document
+    .querySelector("#sprite_container01")
+    .removeEventListener("animationend", enemy01Moved);
+  // fjern fade_out
+  document.querySelector("#sprite01").classList.remove("fade_out");
+  //fjren paused
+  document.querySelector("#sprite_container01").classList.remove("paused");
+
+  // genstart animationen
+  document.querySelector("#sprite_container01").classList.remove("right_left");
+  document.querySelector("#sprite_container01").offsetDown;
+  document.querySelector("#sprite_container01").classList.add("right_left");
+
+  // elementet bliver klikbart igen...
+  document
+    .querySelector("#sprite_container01")
+    .addEventListener("click", enemy01Clicked);
 }
 
 function enemy02Clicked() {
@@ -60,22 +101,18 @@ function enemy02Clicked() {
   // tilføjer animation end til at kalde næste funktion....
   document
     .querySelector("#sprite_container02")
-    .addEventListener("animationend", enemyMoved);
+    .addEventListener("animationend", enemy02Moved);
 
-  incrementPoints();
-}
-
-function enemy03Clicked() {
   incrementPoints();
 }
 
 // Der mangler en form for reseet/respawn så den ikke afspiller hvor den stoppede...
 
-function enemyMoved() {
+function enemy02Moved() {
   // animation end fjernes
   document
     .querySelector("#sprite_container02")
-    .removeEventListener("animationend", enemyMoved);
+    .removeEventListener("animationend", enemy02Moved);
   // fjern fade_out
   document.querySelector("#sprite02").classList.remove("fade_out");
   //fjren paused
@@ -92,23 +129,150 @@ function enemyMoved() {
     .addEventListener("click", enemy02Clicked);
 }
 
-function incrementPoints() {
-  displayPoints();
-  points++;
+function enemy03Clicked() {
+  console.log("enemy03Clicked");
+
+  // gør den ikke klikbar
+  document
+    .querySelector("#sprite_container05")
+    .removeEventListener("click", enemy03Clicked);
+
+  //stop animation
+  document.querySelector("#sprite_container05").classList.add("paused");
+
+  // fjern sprite
+  document.querySelector("#sprite05").classList.add("fade_out");
+
+  // tilføjer animation end til at kalde næste funktion....
+  document
+    .querySelector("#sprite_container05")
+    .addEventListener("animationend", enemy03Moved);
+
+  incrementPoints();
 }
 
+function enemy03Moved() {
+  console.log("enemy03 moved");
+  // animation end fjernes
+  document
+    .querySelector("#sprite_container05")
+    .removeEventListener("animationend", enemy03Moved);
+  // fjern fade_out
+  document.querySelector("#sprite05").classList.remove("fade_out");
+  //fjren paused
+  document.querySelector("#sprite_container05").classList.remove("paused");
+
+  // genstart animationen
+  document.querySelector("#sprite_container05").classList.remove("updown");
+  document.querySelector("#sprite_container05").offsetDown;
+  document.querySelector("#sprite_container05").classList.add("updown");
+
+  // elementet bliver klikbart igen...
+  document
+    .querySelector("#sprite_container05")
+    .addEventListener("click", enemy03Clicked);
+}
+
+//Få et point
+function incrementPoints() {
+  points++;
+  displayPoints();
+}
+
+// opdater det nye point
 function displayPoints() {
-  document.querySelector("#points").textContent = points;
+  if (points < 10) {
+    victory();
+  } else {
+    document.querySelector("#points").textContent = points;
+  }
 }
 
 function friendly01Clicked() {
   console.log("friendly01Clicked");
+
+  // gør den ikke klikbar
+  document
+    .querySelector("#sprite_container03")
+    .removeEventListener("click", friendly01Clicked);
+
+  //stop animation
+  document.querySelector("#sprite_container03").classList.add("paused");
+
+  // fjern sprite
+  document.querySelector("#sprite03").classList.add("fade_out");
+
+  // tilføjer animation end til at kalde næste funktion....
+  document
+    .querySelector("#sprite_container03")
+    .addEventListener("animationend", friendly01Moved);
+
   looseLife();
+}
+
+function friendly01Moved() {
+  console.log("friendly01Moved");
+  // animation end fjernes
+  document
+    .querySelector("#sprite_container03")
+    .removeEventListener("animationend", friendly01Moved);
+  // fjern fade_out
+  document.querySelector("#sprite03").classList.remove("fade_out");
+  //fjren paused
+  document.querySelector("#sprite_container03").classList.remove("paused");
+
+  // genstart animationen
+  document.querySelector("#sprite_container03").classList.remove("left_right");
+  document.querySelector("#sprite_container03").offsetDown;
+  document.querySelector("#sprite_container03").classList.add("left_right");
+
+  // elementet bliver klikbart igen...
+  document
+    .querySelector("#sprite_container03")
+    .addEventListener("click", friendly01Clicked);
 }
 
 function friendly02Clicked() {
   console.log("friendly02Clicked");
+
+  // gør den ikke klikbar
+  document
+    .querySelector("#sprite_container04")
+    .removeEventListener("click", friendly02Clicked);
+
+  //stop animation
+  document.querySelector("#sprite_container04").classList.add("paused");
+
+  // fjern sprite
+  document.querySelector("#sprite04").classList.add("fade_out");
+
+  // tilføjer animation end til at kalde næste funktion....
+  document
+    .querySelector("#sprite_container04")
+    .addEventListener("animationend", friendly02Moved);
+
   looseLife();
+}
+
+function friendly02Moved() {
+  // animation end fjernes
+  document
+    .querySelector("#sprite_container04")
+    .removeEventListener("animationend", friendly02Moved);
+  // fjern fade_out
+  document.querySelector("#sprite04").classList.remove("fade_out");
+  //fjren paused
+  document.querySelector("#sprite_container04").classList.remove("paused");
+
+  // genstart animationen
+  document.querySelector("#sprite_container04").classList.remove("wickerman");
+  document.querySelector("#sprite_container04").offsetDown;
+  document.querySelector("#sprite_container04").classList.add("wickerman");
+
+  // elementet bliver klikbart igen...
+  document
+    .querySelector("#sprite_container04")
+    .addEventListener("click", friendly02Clicked);
 }
 
 function looseLife() {
@@ -143,6 +307,10 @@ function hideHeart() {
   if (lives == 0) {
     gameOver();
   }
+}
+
+function victory() {
+  document.querySelector("#level_complete").classList.reomve("#hidden");
 }
 
 function gameOver() {
