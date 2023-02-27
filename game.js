@@ -8,8 +8,8 @@ window.addEventListener("load", preStart);
 // få styr på respawn
 // få overlay skærmene til at se pæne ud
 
-let points = 1;
-let lives = 3;
+let points;
+let lives;
 let sprite;
 let spriteClicked;
 
@@ -21,6 +21,15 @@ function preStart() {
 }
 
 function start() {
+  //genstart liv mm.
+  points = 0;
+  lives = 3;
+
+  // //genaktiver alle hjertene
+  // document.querySelector("#hp_container01").classList.remove("hidden");
+  // document.querySelector("#hp_container02").classList.remove("hidden");
+  // document.querySelector("#hp_container03").classList.remove("hidden");
+
   //gem alle 'overlay' skærme
   document.querySelector("#start_screen").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
