@@ -25,24 +25,44 @@ function start() {
   points = 0;
   lives = 3;
 
+  console.log("startAll");
+
   // //genaktiver alle hjertene
+  showHP();
+
+  //gem alle 'overlay' skærme
+  hideOverlayScreens();
+
+  //aktiver basis animationerne
+  activateAnimations();
+
+  //gør sprites klikbare
+  clickableSprites();
+}
+
+function showHP() {
   document.querySelector("#hp_container1").classList.remove("hidden");
   document.querySelector("#hp_container2").classList.remove("hidden");
   document.querySelector("#hp_container3").classList.remove("hidden");
+}
 
-  //gem alle 'overlay' skærme
+function hideOverlayScreens() {
   document.querySelector("#start_screen").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
+}
 
-  //aktiver basis animationerne
+function activateAnimations() {
   document.querySelector("#sprite_container01").classList.add("right_left");
   document.querySelector("#sprite_container02").classList.add("updown");
-  document.querySelector("#sprite_container03").classList.add("left_right");
+  document
+    .querySelector("#sprite_container03")
+    .classList.add("animationWall01");
   document.querySelector("#sprite_container04").classList.add("wickerman");
   document.querySelector("#sprite_container05").classList.add("updown");
+}
 
-  //gør sprites klikbare
+function clickableSprites() {
   document
     .querySelector("#sprite_container01")
     .addEventListener("click", sprite01Clicked);
@@ -109,22 +129,19 @@ function sprite04Clicked() {
 
 function spriteHit() {
   // gør den ikke klikbar
+  let container = document.querySelector(`#sprite_container${sprite}`);
 
   // ...enemy${sprtie}Clicked
-  document
-    .querySelector(`#sprite_container${sprite}`)
-    .removeEventListener("click", spriteClicked);
+  container.removeEventListener("click", spriteClicked);
 
   //stop animation
-  document.querySelector(`#sprite_container${sprite}`).classList.add("paused");
+  container.classList.add("paused");
 
   // fjern sprite
   document.querySelector(`#sprite${sprite}`).classList.add("fade_out");
 
   // tilføjer animation end til at kalde næste funktion....
-  document
-    .querySelector(`#sprite_container${sprite}`)
-    .addEventListener("animationend", spriteMoved);
+  container.addEventListener("animationend", spriteMoved);
 }
 
 // Der mangler en form for reseet/respawn så den ikke afspiller hvor den stoppede...
@@ -133,59 +150,46 @@ function spriteMoved() {
   let container = document.querySelector(`#sprite_container${sprite}`);
 
   // animation end fjernes
-  document
-    .querySelector(`#sprite_container${sprite}`)
-    .removeEventListener("animationend", spriteMoved);
-  // fjern fade_out
+  container.removeEventListener("animationend", spriteMoved);
+  // fjern fade_out på sprite
   document.querySelector(`#sprite${sprite}`).classList.remove("fade_out");
   //fjren paused
-  document
-    .querySelector(`#sprite_container${sprite}`)
-    .classList.remove("paused");
+  container.classList.remove("paused");
 
   // genstart animationen (SPECIFIKKE ANIMATIONER)
   if (sprite == "01") {
-    document
-      .querySelector(`#sprite_container${sprite}`)
-      .classList.remove("right_left");
-    document.querySelector(`#sprite_container${sprite}`).offsetLeft;
-    document
-      .querySelector(`#sprite_container${sprite}`)
-      .classList.add("right_left");
+    container.classList.remove("right_left");
+    container.offsetLeft;
+    container.classList.add("right_left");
+
+    // kvinden
   } else if (sprite == "03") {
-    document
-      .querySelector(`#sprite_container${sprite}`)
-      .classList.remove("left_right");
-    document.querySelector(`#sprite_container${sprite}`).offsetLeft;
-    document
-      .querySelector(`#sprite_container${sprite}`)
-      .classList.add("left_right");
+    container.classList.remove(
+      "animationWalll01",
+      "animationWalll02",
+      "animationWalll03",
+      "animationWalll04"
+    );
+    container.offsetLeft;
+
+    let num = Math.floor(Math.random() * 3) + 1;
+    container.classList.add(`animationWall0${num}`);
 
     console.log("left_right");
   } else if (sprite == "04") {
-    document
-      .querySelector(`#sprite_container${sprite}`)
-      .classList.remove("wickerman");
-    document.querySelector(`#sprite_container${sprite}`).offsetLeft;
-    document
-      .querySelector(`#sprite_container${sprite}`)
-      .classList.add("wickerman");
+    container.classList.remove("wickerman");
+    container.offsetLeft;
+    container.classList.add("wickerman");
 
     console.log("wickerman");
   } else {
-    document
-      .querySelector(`#sprite_container${sprite}`)
-      .classList.remove("updown");
-    document.querySelector(`#sprite_container${sprite}`).offsetLeft;
-    document
-      .querySelector(`#sprite_container${sprite}`)
-      .classList.add("updown");
+    container.classList.remove("updown");
+    container.offsetLeft;
+    container.classList.add("updown");
   }
 
   // elementet bliver klikbart igen...
-  document
-    .querySelector(`#sprite_container${sprite}`)
-    .addEventListener("click", spriteClicked);
+  container.addEventListener("click", spriteClicked);
 }
 
 function incrementPoints() {
@@ -255,13 +259,13 @@ function stopAll() {
   console.log("stopAll");
 
   //deaktiver basis animationerne
-  document.querySelector("#sprite_container01").classList.remove("right_left");
-  document.querySelector("#sprite_container02").classList.remove("updown");
-  document.querySelector("#sprite_container03").classList.remove("left_right");
-  document.querySelector("#sprite_container04").classList.remove("wickerman");
-  document.querySelector("#sprite_container05").classList.remove("updown");
+  stopAnimations();
 
   //gør sprites u-klikbare
+  preventClicks();
+}
+
+function preventClicks() {
   document
     .querySelector("#sprite_container01")
     .removeEventListener("click", sprite01Clicked);
@@ -277,4 +281,20 @@ function stopAll() {
   document
     .querySelector("#sprite_container05")
     .removeEventListener("click", sprite05Clicked);
+}
+
+function stopAnimations() {
+  document.querySelector("#sprite_container01").classList.remove("right_left");
+  document.querySelector("#sprite_container02").classList.remove("updown");
+  // How do I know what animation I am removing...? remove all of them?
+  document
+    .querySelector("#sprite_container03")
+    .classList.remove(
+      "animationWalll01",
+      "animationWalll02",
+      "animationWalll03",
+      "animationWalll04"
+    );
+  document.querySelector("#sprite_container04").classList.remove("wickerman");
+  document.querySelector("#sprite_container05").classList.remove("updown");
 }

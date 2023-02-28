@@ -114,8 +114,8 @@ img {
 #sprite_container02 {
   width: 10%;
   position: absolute;
-  top: 40%;
-  left: 67%;
+  /* top: 40%;
+  left: 67%; */
   z-index: 20;
 }
 
@@ -123,9 +123,9 @@ img {
 #sprite_container03 {
   width: 6%;
   position: absolute;
-  top: 60%;
+  /* top: 60%;
   left: 60%;
-  z-index: 44;
+  z-index: 44; */
 }
 
 /* præsten */
@@ -141,8 +141,8 @@ img {
 #sprite_container05 {
   width: 10%;
   position: absolute;
-  top: 35%;
-  left: 45%;
+  /* top: 35%;
+  left: 45%; */
   z-index: 25;
 }
 
@@ -271,33 +271,22 @@ img {
 
 /* FIGURES ANIMATIONER */
 
-.updown {
-  animation-name: updown;
+/* ANIMATION FOR THE WOMAN-SPRITE */
+
+.animationWalll01 {
+  /* positionen */
+  top: 60%;
+  left: 60%;
+  z-index: 44;
+
+  /* animationen */
+  animation-name: animationWalll01;
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes updown {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(0, 100%);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-.left_right {
-  animation-name: left_right;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes left_right {
+@keyframes animationWall01 {
   0% {
     transform: translate(0, 0);
   }
@@ -309,6 +298,99 @@ img {
   }
   100% {
     transform: translate(-350%, 0);
+  }
+}
+
+.animationWall02 {
+  /* positionen */
+  top: 60%;
+  left: 35%;
+  z-index: 44;
+
+  /* animationen */
+  animation-name: animationWall02;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animationWall02 {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -50%);
+  }
+  80% {
+    transform: translate(350%, -50%);
+  }
+  100% {
+    transform: translate(350%, 0);
+  }
+}
+
+.animationWall03 {
+  /* positionen */
+  top: 60%;
+  left: 35%;
+  z-index: 44;
+
+  /* animationen */
+  animation-name: animationWall03;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animationWoman03 {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -50%);
+  }
+  50% {
+    transform: translate(200%, -50%);
+  }
+  60% {
+    transform: translate(100%, -50%);
+  }
+  80% {
+    transform: translate(350%, -50%);
+  }
+  100% {
+    transform: translate(350%, 0);
+  }
+}
+
+.animationWalll04 {
+  /* positionen */
+  top: 60%;
+  left: 45%;
+  z-index: 44;
+
+  /* animationen */
+  animation-name: animationWalll04;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animationWalll04 {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -50%);
+  }
+  40% {
+    transform: translate(200%, -50%);
+  }
+  70% {
+    transform: translate(-200%, -50%);
+  }
+  100% {
+    transform: translate(-200%, 0);
   }
 }
 
@@ -331,6 +413,53 @@ img {
   }
   100% {
     transform: translate(300%, 0);
+  }
+}
+
+/* AVOID Z-index colitions... 2/3 sprites with same animations but own Z-index */
+
+.updown {
+  top: 40%;
+  left: 67%;
+  z-index: 21;
+
+  animation-name: updown;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.updown02 {
+  top: 35%;
+  left: 45%;
+  z-index: 25;
+
+  animation-name: updown;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.updown03 {
+  top: 40%;
+  left: 22%;
+  z-index: 21;
+
+  animation-name: updown;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 
