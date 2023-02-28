@@ -26,9 +26,9 @@ function start() {
   lives = 3;
 
   // //genaktiver alle hjertene
-  // document.querySelector("#hp_container01").classList.remove("hidden");
-  // document.querySelector("#hp_container02").classList.remove("hidden");
-  // document.querySelector("#hp_container03").classList.remove("hidden");
+  document.querySelector("#hp_container1").classList.remove("hidden");
+  document.querySelector("#hp_container2").classList.remove("hidden");
+  document.querySelector("#hp_container3").classList.remove("hidden");
 
   //gem alle 'overlay' skærme
   document.querySelector("#start_screen").classList.add("hidden");
@@ -130,6 +130,8 @@ function spriteHit() {
 // Der mangler en form for reseet/respawn så den ikke afspiller hvor den stoppede...
 
 function spriteMoved() {
+  let container = document.querySelector(`#sprite_container${sprite}`);
+
   // animation end fjernes
   document
     .querySelector(`#sprite_container${sprite}`)
@@ -146,7 +148,7 @@ function spriteMoved() {
     document
       .querySelector(`#sprite_container${sprite}`)
       .classList.remove("right_left");
-    document.querySelector(`#sprite_container${sprite}`).offsetDown;
+    document.querySelector(`#sprite_container${sprite}`).offsetLeft;
     document
       .querySelector(`#sprite_container${sprite}`)
       .classList.add("right_left");
@@ -154,7 +156,7 @@ function spriteMoved() {
     document
       .querySelector(`#sprite_container${sprite}`)
       .classList.remove("left_right");
-    document.querySelector(`#sprite_container${sprite}`).offsetDown;
+    document.querySelector(`#sprite_container${sprite}`).offsetLeft;
     document
       .querySelector(`#sprite_container${sprite}`)
       .classList.add("left_right");
@@ -164,7 +166,7 @@ function spriteMoved() {
     document
       .querySelector(`#sprite_container${sprite}`)
       .classList.remove("wickerman");
-    document.querySelector(`#sprite_container${sprite}`).offsetDown;
+    document.querySelector(`#sprite_container${sprite}`).offsetLeft;
     document
       .querySelector(`#sprite_container${sprite}`)
       .classList.add("wickerman");
@@ -174,7 +176,7 @@ function spriteMoved() {
     document
       .querySelector(`#sprite_container${sprite}`)
       .classList.remove("updown");
-    document.querySelector(`#sprite_container${sprite}`).offsetDown;
+    document.querySelector(`#sprite_container${sprite}`).offsetLeft;
     document
       .querySelector(`#sprite_container${sprite}`)
       .classList.add("updown");
