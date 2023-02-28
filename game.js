@@ -25,7 +25,7 @@ function start() {
   points = 0;
   lives = 3;
 
-  console.log("startAll");
+  console.log("Start");
 
   // //genaktiver alle hjertene
   showHP();
@@ -41,28 +41,32 @@ function start() {
 }
 
 function showHP() {
+  console.log("showHP");
   document.querySelector("#hp_container1").classList.remove("hidden");
   document.querySelector("#hp_container2").classList.remove("hidden");
   document.querySelector("#hp_container3").classList.remove("hidden");
 }
 
 function hideOverlayScreens() {
+  console.log("hideOverlay");
   document.querySelector("#start_screen").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 }
 
 function activateAnimations() {
+  console.log("activate animations");
   document.querySelector("#sprite_container01").classList.add("right_left");
   document.querySelector("#sprite_container02").classList.add("updown");
   document
     .querySelector("#sprite_container03")
-    .classList.add("animationWall01");
+    .classList.add("animationWalll04");
   document.querySelector("#sprite_container04").classList.add("wickerman");
-  document.querySelector("#sprite_container05").classList.add("updown");
+  document.querySelector("#sprite_container05").classList.add("updown02");
 }
 
 function clickableSprites() {
+  console.log("clickable sprites");
   document
     .querySelector("#sprite_container01")
     .addEventListener("click", sprite01Clicked);
@@ -130,6 +134,7 @@ function sprite04Clicked() {
 function spriteHit() {
   // gør den ikke klikbar
   let container = document.querySelector(`#sprite_container${sprite}`);
+  console.log(container);
 
   // ...enemy${sprtie}Clicked
   container.removeEventListener("click", spriteClicked);
@@ -148,6 +153,7 @@ function spriteHit() {
 
 function spriteMoved() {
   let container = document.querySelector(`#sprite_container${sprite}`);
+  console.log(container);
 
   // animation end fjernes
   container.removeEventListener("animationend", spriteMoved);
@@ -171,11 +177,12 @@ function spriteMoved() {
       "animationWalll04"
     );
     container.offsetLeft;
+    container.classList.add("animationWalll04");
 
-    let num = Math.floor(Math.random() * 3) + 1;
-    container.classList.add(`animationWall0${num}`);
+    // let num = Math.floor(Math.random() * 3) + 1;
+    // container.classList.add(`animationWall0${num}`);
 
-    console.log("left_right");
+    console.log("animataion Wall n");
   } else if (sprite == "04") {
     container.classList.remove("wickerman");
     container.offsetLeft;
@@ -296,5 +303,5 @@ function stopAnimations() {
       "animationWalll04"
     );
   document.querySelector("#sprite_container04").classList.remove("wickerman");
-  document.querySelector("#sprite_container05").classList.remove("updown");
+  document.querySelector("#sprite_container05").classList.remove("updown02");
 }
