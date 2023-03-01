@@ -116,7 +116,7 @@ img {
   position: absolute;
   /* top: 40%;
   left: 67%; */
-  z-index: 20;
+  z-index: 21;
 }
 
 /* kvinden */
@@ -124,8 +124,8 @@ img {
   width: 6%;
   position: absolute;
   /* top: 60%;
-  left: 60%;
-  z-index: 44; */
+  left: 60%;*/
+  z-index: 44;
 }
 
 /* præsten */
@@ -273,14 +273,14 @@ img {
 
 /* ANIMATION FOR THE WOMAN-SPRITE */
 
-.animationWalll01 {
+.animationWall01 {
   /* positionen */
   top: 60%;
   left: 60%;
   z-index: 44;
 
   /* animationen */
-  animation-name: animationWalll01;
+  animation-name: animationWall01;
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -305,7 +305,6 @@ img {
   /* positionen */
   top: 60%;
   left: 35%;
-  z-index: 44;
 
   /* animationen */
   animation-name: animationWall02;
@@ -333,7 +332,6 @@ img {
   /* positionen */
   top: 60%;
   left: 35%;
-  z-index: 44;
 
   /* animationen */
   animation-name: animationWall03;
@@ -342,7 +340,7 @@ img {
   animation-iteration-count: infinite;
 }
 
-@keyframes animationWoman03 {
+@keyframes animationWall03 {
   0% {
     transform: translate(0, 0);
   }
@@ -363,20 +361,19 @@ img {
   }
 }
 
-.animationWalll04 {
+.animationWall04 {
   /* positionen */
   top: 60%;
   left: 45%;
-  z-index: 44;
 
   /* animationen */
-  animation-name: animationWalll04;
+  animation-name: animationWall04;
   animation-duration: 6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes animationWalll04 {
+@keyframes animationWall04 {
   0% {
     transform: translate(0, 0);
   }
@@ -421,7 +418,6 @@ img {
 .updown {
   top: 40%;
   left: 67%;
-  z-index: 21;
 
   animation-name: updown;
   animation-duration: 5s;
@@ -432,7 +428,6 @@ img {
 .updown02 {
   top: 35%;
   left: 45%;
-  z-index: 25;
 
   animation-name: updown;
   animation-duration: 5s;
@@ -443,11 +438,20 @@ img {
 .updown03 {
   top: 40%;
   left: 22%;
-  z-index: 21;
 
   animation-name: updown;
   animation-duration: 5s;
   animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.updown04 {
+  top: 40%;
+  left: 22%;
+
+  animation-name: updown;
+  animation-duration: 5s;
+  animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
 

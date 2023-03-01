@@ -25,6 +25,9 @@ function start() {
   points = 0;
   lives = 3;
 
+  // document.querySelector("#medieval_music").play();
+  // document.querySelector("#medieval_music").loop()= true;
+
   console.log("Start");
 
   // //genaktiver alle hjertene
@@ -60,7 +63,7 @@ function activateAnimations() {
   document.querySelector("#sprite_container02").classList.add("updown");
   document
     .querySelector("#sprite_container03")
-    .classList.add("animationWalll04");
+    .classList.add("animationWall04");
   document.querySelector("#sprite_container04").classList.add("wickerman");
   document.querySelector("#sprite_container05").classList.add("updown02");
 }
@@ -171,16 +174,16 @@ function spriteMoved() {
     // kvinden
   } else if (sprite == "03") {
     container.classList.remove(
-      "animationWalll01",
-      "animationWalll02",
-      "animationWalll03",
-      "animationWalll04"
+      "animationWall01",
+      "animationWall02",
+      "animationWall03",
+      "animationWall04"
     );
     container.offsetLeft;
-    container.classList.add("animationWalll04");
 
-    // let num = Math.floor(Math.random() * 3) + 1;
-    // container.classList.add(`animationWall0${num}`);
+    let num = Math.floor(Math.random() * 3) + 1;
+    container.classList.add(`animationWall0${num}`);
+    console.log(num);
 
     console.log("animataion Wall n");
   } else if (sprite == "04") {
@@ -265,6 +268,8 @@ function gameOver() {
 function stopAll() {
   console.log("stopAll");
 
+  // document.querySelector("#medieval_music").pause();
+
   //deaktiver basis animationerne
   stopAnimations();
 
@@ -297,10 +302,10 @@ function stopAnimations() {
   document
     .querySelector("#sprite_container03")
     .classList.remove(
-      "animationWalll01",
-      "animationWalll02",
-      "animationWalll03",
-      "animationWalll04"
+      "animationWall01",
+      "animationWall02",
+      "animationWall03",
+      "animationWall04"
     );
   document.querySelector("#sprite_container04").classList.remove("wickerman");
   document.querySelector("#sprite_container05").classList.remove("updown02");
