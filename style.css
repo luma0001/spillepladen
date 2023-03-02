@@ -105,8 +105,8 @@ img {
 #sprite_container01 {
   width: 10%;
   position: absolute;
-  top: 65%;
-  left: 30%;
+  /* top: 65%;
+  left: 30%; */
   z-index: 43;
 }
 
@@ -391,14 +391,17 @@ img {
   }
 }
 
-.right_left {
-  animation-name: right_left;
+.knightWall01 {
+  top: 65%;
+  left: 30%;
+
+  animation-name: knightWall01;
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes right_left {
+@keyframes knightWall01 {
   0% {
     transform: translate(0, 0);
   }
@@ -413,9 +416,84 @@ img {
   }
 }
 
+.knightWall02 {
+  top: 65%;
+  left: 60%;
+
+  animation-name: knightWall02;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes knightWall02 {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -70%);
+  }
+  80% {
+    transform: translate(-300%, -70%);
+  }
+  100% {
+    transform: translate(-300%, 0);
+  }
+}
+
+.knightWall03 {
+  top: 65%;
+  left: 45%;
+
+  animation-name: knightWall03;
+  animation-duration: 2.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes knightWall03 {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -70%);
+  }
+  80% {
+    transform: translate(-150%, -70%);
+  }
+  100% {
+    transform: translate(-150%, 0);
+  }
+}
+
+.knightWall04 {
+  top: 65%;
+  left: 45%;
+
+  animation-name: knightWall04;
+  animation-duration: 2.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes knightWall04 {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -70%);
+  }
+  80% {
+    transform: translate(150%, -70%);
+  }
+  100% {
+    transform: translate(150%, 0);
+  }
+}
+
 /* AVOID Z-index colitions... 2/3 sprites with same animations but own Z-index */
 
-.updown {
+.updown01 {
   top: 40%;
   left: 67%;
 
@@ -442,16 +520,6 @@ img {
   animation-name: updown;
   animation-duration: 5s;
   animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.updown04 {
-  top: 40%;
-  left: 22%;
-
-  animation-name: updown;
-  animation-duration: 5s;
-  animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
 

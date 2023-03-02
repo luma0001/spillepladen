@@ -59,8 +59,8 @@ function hideOverlayScreens() {
 
 function activateAnimations() {
   console.log("activate animations");
-  document.querySelector("#sprite_container01").classList.add("right_left");
-  document.querySelector("#sprite_container02").classList.add("updown");
+  document.querySelector("#sprite_container01").classList.add("knightWall01");
+  document.querySelector("#sprite_container02").classList.add("updown01");
   document
     .querySelector("#sprite_container03")
     .classList.add("animationWall04");
@@ -167,9 +167,15 @@ function spriteMoved() {
 
   // genstart animationen (SPECIFIKKE ANIMATIONER)
   if (sprite == "01") {
-    container.classList.remove("right_left");
-    container.offsetLeft;
-    container.classList.add("right_left");
+    container.classList.remove(
+      "knightWall01",
+      "knightWall02",
+      "knightWall03",
+      "knightWall04"
+    );
+    let itt = Math.floor(Math.random() * 3) + 1;
+    container.classList.add(`knightWall0${itt}`);
+    console.log(itt);
 
     // kvinden
   } else if (sprite == "03") {
@@ -192,10 +198,15 @@ function spriteMoved() {
     container.classList.add("wickerman");
 
     console.log("wickerman");
+    // tårnridderne - sptire 02 og 05
   } else {
-    container.classList.remove("updown");
+    container.classList.remove("updown01", "updown02", "updown03");
     container.offsetLeft;
-    container.classList.add("updown");
+
+    // POSITION 3 FÅS IKKE...
+    let an = Math.floor(Math.random() * 2) + 1;
+    container.classList.add(`updown0${an}`);
+    console.log(an);
   }
 
   // elementet bliver klikbart igen...
@@ -296,8 +307,17 @@ function preventClicks() {
 }
 
 function stopAnimations() {
-  document.querySelector("#sprite_container01").classList.remove("right_left");
-  document.querySelector("#sprite_container02").classList.remove("updown");
+  document
+    .querySelector("#sprite_container01")
+    .classList.remove(
+      "knightWall01",
+      "knightWall02",
+      "knightWall03",
+      "knightWall04"
+    );
+  document
+    .querySelector("#sprite_container02")
+    .classList.remove("updown01,updown02,updown03");
   // How do I know what animation I am removing...? remove all of them?
   document
     .querySelector("#sprite_container03")
@@ -308,5 +328,7 @@ function stopAnimations() {
       "animationWall04"
     );
   document.querySelector("#sprite_container04").classList.remove("wickerman");
-  document.querySelector("#sprite_container05").classList.remove("updown02");
+  document
+    .querySelector("#sprite_container05")
+    .classList.remove("updown01", "updown02", "updown03");
 }
