@@ -204,22 +204,40 @@ img {
 }
 
 /* STATE OVERLAY */
-#start_screen {
+
+/* .scroll {
   top: 10%;
   left: 0;
+  z-index: 99%;
+}
+
+.background {
+  top: 0;
+  left: 0;
+  z-index: 98%;
+} */
+
+h2 {
+  text-align: center;
+  z-index: 99%;
+}
+
+#start_screen {
+  top: 0;
+  left: 0;
   position: absolute;
-  z-index: 100;
+  z-index: 100%;
 }
 
 #game_over {
-  top: 10%;
+  top: 0;
   left: 0;
   position: absolute;
   z-index: 100;
 }
 
 #level_complete {
-  top: 10%;
+  top: 0;
   left: 0;
   position: absolute;
   z-index: 100;
@@ -621,4 +639,22 @@ img {
 
 .paused {
   animation-play-state: paused;
+}
+
+/* animationen om tid */
+
+.timerOn {
+  animation-name: timerOn;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+@keyframes timerOn {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }

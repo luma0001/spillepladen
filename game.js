@@ -2,11 +2,11 @@
 
 window.addEventListener("load", preStart);
 
-// fix den level complete skærm
-// // reset points og liv + hp sprites når du genstarter
 // få styr på UIgriddet
 // få styr på respawn
 // få overlay skærmene til at se pæne ud
+// elementer der stadig kører efter slut"
+// problemer med random positions automatisk... grundet ting
 
 let points;
 let lives;
@@ -41,6 +41,9 @@ function start() {
 
   //gør sprites klikbare
   clickableSprites();
+
+  //aktiver tiden
+  beginTimer();
 }
 
 function showHP() {
@@ -59,6 +62,7 @@ function hideOverlayScreens() {
 
 function activateAnimations() {
   console.log("activate animations");
+  // Aktivere start animationerne
   document.querySelector("#sprite_container01").classList.add("knightWall01");
   document.querySelector("#sprite_container02").classList.add("updown01");
   document
@@ -66,6 +70,24 @@ function activateAnimations() {
     .classList.add("animationWall04");
   document.querySelector("#sprite_container04").classList.add("wickerman01");
   document.querySelector("#sprite_container05").classList.add("updown02");
+
+  // Aktivere en ny random animation når den sidste er slut
+
+  // document
+  //   .querySelector("#sprite_container01")
+  //   .addEventListener("animationiteration", restartAnimation);
+  // document
+  //   .querySelector("#sprite_container02")
+  //   .addEventListener("animationiteration", restartAnimation);
+  // document
+  //   .querySelector("#sprite_container03")
+  //   .addEventListener("animationiteration", restartAnimation);
+  // document
+  //   .querySelector("#sprite_container04")
+  //   .addEventListener("animationiteration", restartAnimation);
+  // document
+  //   .querySelector("#sprite_container05")
+  //   .addEventListener("animationiteration", restartAnimation);
 }
 
 function clickableSprites() {
@@ -165,7 +187,18 @@ function spriteMoved() {
   //fjren paused
   container.classList.remove("paused");
 
+  // kalder
+  restartAnimation.call(this);
+
+  // elementet bliver klikbart igen...
+  container.addEventListener("click", spriteClicked);
+}
+
+function restartAnimation() {
   // genstart animationen (SPECIFIKKE ANIMATIONER)
+  let container = this;
+  console.log(this);
+
   if (sprite == "01") {
     container.classList.remove(
       "knightWall01",
@@ -210,9 +243,6 @@ function spriteMoved() {
     container.classList.add(`updown0${an}`);
     console.log(an);
   }
-
-  // elementet bliver klikbart igen...
-  container.addEventListener("click", spriteClicked);
 }
 
 function incrementPoints() {
@@ -222,11 +252,12 @@ function incrementPoints() {
 
 // opdater det nye point
 function displayPoints() {
-  if (points > 10) {
-    victory();
-  } else {
-    document.querySelector("#points").textContent = points;
-  }
+  // if (points > 10) {
+  //   victory();
+  // } else {
+  //   document.querySelector("#points").textContent = points;
+  // }
+  document.querySelector("#points").textContent = points;
 }
 
 function looseLife() {
@@ -263,12 +294,28 @@ function hideHeart() {
   }
 }
 
--function victory() {
+function beginTimer() {
+  document.querySelector("#time_container").classList.add("timerOn");
+  document
+    .querySelector("#time_container")
+    .addEventListener("animationend", timesUp);
+}
+
+function timesUp() {
+  console.log("times up");
+  if (points > 10) {
+    victory();
+  } else {
+    gameOver;
+  }
+}
+
+function victory() {
   console.log("level complete");
   //BLIVER ALDRIG AKTIVERET - HVORFOR?!
   document.querySelector("#level_complete").classList.remove("hidden");
   stopAll();
-};
+}
 
 //viser game over skærmen
 function gameOver() {

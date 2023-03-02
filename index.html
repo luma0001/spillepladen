@@ -6,57 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel=" icon" href="#" type = "image/x-icon">
+    <link rel=" icon" href="#" type="image/x-icon" />
   </head>
 
   <body>
-
-    <main id="screen">
-      <div id="game">
-       
-        <div id="game_background">
-        </div>
-
-
-
+    <main id="game">
+      <article id="screen">
+        <div id="game_background"></div>
 
         <div id="game_elements">
           <div id="sprite_container01">
-            <img id="sprite01" src="Images/enemy1x500.png"  alt="knight1" />
+            <img id="sprite01" src="Images/enemy1x500.png" alt="knight1" />
           </div>
 
           <!-- klassen loades ikke... -->
           <div id="sprite_container02">
-            <img id="sprite02" src="Images/enemy2x500.png"/>
+            <img id="sprite02" src="Images/enemy2x500.png" />
           </div>
 
           <div id="sprite_container03">
-            <img id="sprite03" src="Images/womanX.png">
+            <img id="sprite03" src="Images/womanX.png" />
           </div>
 
           <div id="sprite_container04">
-           <img id="sprite04" src="Images/priestX.png">
+            <img id="sprite04" src="Images/priestX.png" />
           </div>
 
           <div id="sprite_container05">
-              <img id="sprite05" src="Images/enemy2x500.png">
-
+            <img id="sprite05" src="Images/enemy2x500.png" />
           </div>
-
-          <!-- 
-          <div  id="sprite_container03">
-            <img id="sprite02" scr="Images/enemies02.png" alt="knight3" />"
-          </div>  -->
         </div>
 
         <div id="game_foreground">
           <div id="castle">
-            <img src="Images/topsx500.png">
+            <img src="Images/topsx500.png" />
           </div>
 
           <div id="wall">
-              <img src="Images/wallx500CUT.png">
-
+            <img src="Images/wallx500CUT.png" />
           </div>
           -
           <!-- <div id="sidetower">
@@ -64,64 +51,69 @@
           </div> -->
 
           <div id="leftTower">
-              <img src="Images/leftTowerCut2.png">
-
+            <img src="Images/leftTowerCut2.png" />
           </div>
 
           <div id="rightTower">
-          <img src="Images/rightTowerCut.png">
+            <img src="Images/rightTowerCut.png" />
           </div>
 
           <div id="centertower">
             <img src="Images/centerTowerx500.png" />
             <!-- <img scr="castlecentertower" alt ="centertower"> -->
           </div>
+        </div>
 
         <div id="game_ui">
           <!-- images of health, time, chances -->
-         
-          <div id="point_display">       
-          <img id="pointman" src="Images/enemy1x500.png"/>
-          <span id="points"> 0 </span>
+
+          <div id="point_display">
+            <img id="pointman" src="Images/enemy1x500.png" />
+            <span id="points"> 0 </span>
           </div>
-        
-          
+
           <div id="hp_display">
-            
-         <div id="hp_container1">
-  <img id="hp_sprite1" src="Images/lifeElement.png">
-</div>
- 
-<div id="hp_container2">
-  <img id="hp_sprite2" src="Images/lifeElement.png">
-</div>
+            <div id="hp_container1">
+              <img id="hp_sprite1" src="Images/lifeElement.png" />
+            </div>
 
-<div id="hp_container3">
-    <img id="hp_sprite3" src="Images/lifeElement.png">
-</div>
+            <div id="hp_container2">
+              <img id="hp_sprite2" src="Images/lifeElement.png" />
+            </div>
 
-</div>
+            <div id="hp_container3">
+              <img id="hp_sprite3" src="Images/lifeElement.png" />
+            </div>
+          </div>
+          <div id="time_display">
+            <div id="time_container"></div>
+          </div>
+        </div>
+      </article>
 
-        
- 
+      <div id="start_screen" class="hidden">
+        <h2>STORM THE GAES</h2>
+
+        <img class="background" src="Images/nature.png" />
+        <img class="scroll" src="Images/scrollCUT.png" />
+
+        <button onclick="start()">START</button>
       </div>
 
-      <div id="start_screen" class ="hidden">
-      <img src="Images/screens.jpg">
-    <button onclick="start()">START</button>  
-    </div>
+      <div id="game_over" class="hidden">
+        <h2>YOU LOST</h2>
 
-      <div id="game_over" class ="hidden">
-        <img src="Images/screens.jpg">
-      <button onclick="start()">RESTART</button>
+        <img src="Images/nature.png" />
+        <img src="Images/scrollCUT.png" />
+        <button onclick="start()">RESTART</button>
       </div>
-      <div id="level_complete" class ="hidden">
-        <img src="Images/screens.jpg">
-              <button onclick="start()">RESTART</button>
-      </div>
-    </div>
 
-      
+      <div id="level_complete" class="hidden">
+        <h2>YOU WON</h2>
+        <img src="Images/nature.png" />
+        <img src="Images/scrollCUT.png" />
+        <button onclick="preStart()">RESTART</button>
+      </div>
     </main>
 
     <!-- CREDITS
@@ -153,7 +145,7 @@ https://www.freepik.com/free-vector/blank-vintage-scroll-paper_21301088.htm#quer
 
 -->
 
-<!-- medieval music:
+    <!-- medieval music:
  Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=32097">Pixabay</a>
 
 Arrow sound: 
@@ -172,9 +164,9 @@ man scream:
 Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=95628">Pixabay</a>
 -->
 
-<audio id="medieval_music" src="Sounds/medieval_music.mp3"></audio>
+    <audio id="medieval_music" src="Sounds/medieval_music.mp3"></audio>
 
-<script src="game.js"></script>
-<!-- <script src="test.js"></script> -->
+    <script src="game.js"></script>
+    <!-- <script src="test.js"></script> -->
   </body>
 </html>
