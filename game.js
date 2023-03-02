@@ -64,7 +64,7 @@ function activateAnimations() {
   document
     .querySelector("#sprite_container03")
     .classList.add("animationWall04");
-  document.querySelector("#sprite_container04").classList.add("wickerman");
+  document.querySelector("#sprite_container04").classList.add("wickerman01");
   document.querySelector("#sprite_container05").classList.add("updown02");
 }
 
@@ -193,9 +193,11 @@ function spriteMoved() {
 
     console.log("animataion Wall n");
   } else if (sprite == "04") {
-    container.classList.remove("wickerman");
+    container.classList.remove("wickerman01", "wickerman02", "wickerman03");
     container.offsetLeft;
-    container.classList.add("wickerman");
+    let n = Math.floor(Math.random() * 2) + 1;
+    container.classList.add(`wickerman0${n}`);
+    console.log(n);
 
     console.log("wickerman");
     // tårnridderne - sptire 02 og 05
@@ -327,7 +329,9 @@ function stopAnimations() {
       "animationWall03",
       "animationWall04"
     );
-  document.querySelector("#sprite_container04").classList.remove("wickerman");
+  document
+    .querySelector("#sprite_container04")
+    .classList.remove("wickerman01", "wickerman02", "wickerman03");
   document
     .querySelector("#sprite_container05")
     .classList.remove("updown01", "updown02", "updown03");

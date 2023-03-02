@@ -132,8 +132,8 @@ img {
 #sprite_container04 {
   width: 6%;
   position: absolute;
-  top: 65%;
-  left: 45%;
+  /* top: 65%;
+  left: 45%; */
   z-index: 26;
 }
 
@@ -536,34 +536,70 @@ img {
 }
 
 /* En animation hvor præsten skifter tårn */
-.wickerman {
-  animation-name: wickerman;
-  animation-duration: 15s;
+
+.wickerman02 {
+  top: 40%;
+  left: 25%;
+
+  animation-name: wickerman02;
+  animation-duration: 4s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes wickerman {
+@keyframes wickerman02 {
   0% {
     transform: translate(0, 0);
   }
-  15% {
-    transform: translate(0, -150%);
+  50% {
+    transform: translate(0, 100%);
   }
-  30% {
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.wickerman01 {
+  top: 34%;
+  left: 47%;
+
+  animation-name: wickerman01;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wickerman01 {
+  0% {
     transform: translate(0, 0);
   }
   50% {
-    tranform: translate(400%, 0);
-  }
-  70% {
-    transform: translate(400%, 0%);
-  }
-  90% {
-    transform: translate(400%, -130%);
+    transform: translate(0, 100%);
   }
   100% {
-    transform: translate(400%, 0);
+    transform: translate(0, 0);
+  }
+}
+
+.wickerman04 {
+  top: 40%;
+  left: 69%;
+
+  animation-name: wickerman04;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wickerman04 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 
