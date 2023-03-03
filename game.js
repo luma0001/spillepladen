@@ -17,7 +17,9 @@ function preStart() {
   //søger for alt er stoppet
   stopAll();
   //gør "START SPILLET fletet synligt"
+
   document.querySelector("#start_screen").classList.remove("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
 }
 
 function start() {
@@ -31,6 +33,9 @@ function start() {
   // document.querySelector("#medieval_music").loop()= true;
 
   console.log("Start");
+
+  document.querySelector("#start_screen").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
 
   showSprites();
 
@@ -60,13 +65,6 @@ function showHP() {
   document.querySelector("#hp_container1").classList.remove("hidden");
   document.querySelector("#hp_container2").classList.remove("hidden");
   document.querySelector("#hp_container3").classList.remove("hidden");
-}
-
-function hideOverlayScreens() {
-  console.log("hideOverlay");
-  document.querySelector("#start_screen").classList.add("hidden");
-  document.querySelector("#game_over").classList.add("hidden");
-  document.querySelector("#level_complete").classList.add("hidden");
 }
 
 function activateAnimations() {
@@ -335,6 +333,9 @@ function timesUp() {
 function victory() {
   console.log("level complete");
   //BLIVER ALDRIG AKTIVERET - HVORFOR?!
+  document.querySelector(
+    "#win"
+  ).textContent = `Congratulations you got: ${points} points`;
   document.querySelector("#level_complete").classList.remove("hidden");
   stopAll();
 }
@@ -342,6 +343,7 @@ function victory() {
 //viser game over skærmen
 function gameOver() {
   console.log("The game is lost");
+
   document.querySelector("#game_over").classList.remove("hidden");
   stopAll();
 }
