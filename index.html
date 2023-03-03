@@ -85,16 +85,15 @@
               <img id="hp_sprite3" src="Images/lifeElement.png" />
             </div>
           </div>
-          <div id="time_display">
-            <div id="time_container"></div>
+
+          <div id="time_container">
+            <img id="time_sprite" src="Images/whiteFlag.png" alt="whiteflag" />
           </div>
         </div>
       </article>
 
       <div id="start_screen" class="hidden">
         <h2>STORM THE GAES</h2>
-
-        <img class="background" src="Images/nature.png" />
         <img class="scroll" src="Images/scrollCUT.png" />
 
         <button onclick="start()">START</button>
@@ -102,8 +101,6 @@
 
       <div id="game_over" class="hidden">
         <h2>YOU LOST</h2>
-
-        <img src="Images/nature.png" />
         <img src="Images/scrollCUT.png" />
         <button onclick="start()">RESTART</button>
       </div>
@@ -143,6 +140,8 @@ https://www.freepik.com/free-vector/sandglass-flat-icons-sandglass-animation-fra
 paper scroll:
 https://www.freepik.com/free-vector/blank-vintage-scroll-paper_21301088.htm#query=scroll%20cartoon&position=47&from_view=search&track=ais
 
+Whiteflag:
+https://www.freepik.com/free-vector/white-fabric-banner-collection_2797505.htm#query=white%20flag%20vector&position=21&from_view=search&track=ais
 -->
 
     <!-- medieval music:
@@ -165,6 +164,10 @@ Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-at
 -->
 
     <audio id="medieval_music" src="Sounds/medieval_music.mp3"></audio>
+    <audio id=" man_scream" src="Sounds/man_scream.mp3"></audio>
+    <audio id="woman_scream" src="Sounds/woman_scream.mp3"></audio>
+    <audio id="bell" scr="Sounds/bell.mp3"></audio>
+    <audio id="yay" src="Sounds/yay.mp3"></audio>
 
     <script src="game.js"></script>
     <!-- <script src="test.js"></script> -->

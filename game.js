@@ -2,16 +2,17 @@
 
 window.addEventListener("load", preStart);
 
-// få styr på UIgriddet
-// få styr på respawn
+// få styr på UIgriddet - eh...
 // få overlay skærmene til at se pæne ud
 // elementer der stadig kører efter slut"
 // problemer med random positions automatisk... grundet ting
+//Mine lyde loader aldrig....
 
 let points;
 let lives;
 let sprite;
 let spriteClicked;
+let gameRunning = false;
 
 function preStart() {
   //søger for alt er stoppet
@@ -25,10 +26,14 @@ function start() {
   points = 0;
   lives = 3;
 
+  gameRunning = true;
+
   // document.querySelector("#medieval_music").play();
   // document.querySelector("#medieval_music").loop()= true;
 
   console.log("Start");
+
+  showSprites();
 
   // //genaktiver alle hjertene
   showHP();
@@ -44,6 +49,19 @@ function start() {
 
   //aktiver tiden
   beginTimer();
+}
+
+function showSprites() {
+  document.querySelector("#sprite_container01").classList.remove("hidden");
+  document.querySelector("#sprite_container02").classList.remove("hidden");
+  document.querySelector("#sprite_container03").classList.remove("hidden");
+  document.querySelector("#sprite_container04").classList.remove("hidden");
+  document.querySelector("#sprite_container05").classList.remove("hidden");
+
+  // document.querySelector("#hp_container01").classList.remove("hidden");
+  // document.querySelector("#hp_container02").classList.remove("hidden");
+  // document.querySelector("#hp_container03").classList.remove("hidden");
+  // document.querySelector("#pointman").classList.remove("hidden");
 }
 
 function showHP() {
@@ -125,6 +143,7 @@ function sprite02Clicked() {
   sprite = "02";
   spriteClicked = sprite03Clicked;
 
+  // document.querySelector("#bell").play();
   spriteHit();
   incrementPoints();
 }
@@ -135,6 +154,7 @@ function sprite05Clicked() {
   sprite = "05";
   spriteClicked = sprite05Clicked;
 
+  // document.querySelector("#bell").play();
   spriteHit();
   incrementPoints();
 }
@@ -144,6 +164,8 @@ function sprite03Clicked() {
   console.log(`#sprite_container${sprite}`);
   sprite = "03";
   spriteClicked = sprite04Clicked;
+
+  // document.querySelector("#woman_scream").play();
   spriteHit();
   looseLife();
 }
@@ -152,6 +174,8 @@ function sprite04Clicked() {
   console.log(`#sprite_container${sprite}`);
   sprite = "04";
   spriteClicked = sprite04Clicked;
+
+  // document.querySelector("#man_scream").play();
   spriteHit();
   looseLife();
 }
@@ -187,8 +211,10 @@ function spriteMoved() {
   //fjren paused
   container.classList.remove("paused");
 
-  // kalder
-  restartAnimation.call(this);
+  if (gameRunning == true) {
+    // kalder
+    restartAnimation.call(this);
+  }
 
   // elementet bliver klikbart igen...
   container.addEventListener("click", spriteClicked);
@@ -246,6 +272,8 @@ function restartAnimation() {
 }
 
 function incrementPoints() {
+  document.querySelector("#bell").currentTime = 0;
+  document.querySelector("#bell").play();
   points++;
   displayPoints();
 }
@@ -295,6 +323,7 @@ function hideHeart() {
 }
 
 function beginTimer() {
+  console.log("timer is ON!");
   document.querySelector("#time_container").classList.add("timerOn");
   document
     .querySelector("#time_container")
@@ -303,10 +332,12 @@ function beginTimer() {
 
 function timesUp() {
   console.log("times up");
+  document.querySelector("#time_container").classList.remove("timerOn");
+
   if (points > 10) {
     victory();
   } else {
-    gameOver;
+    gameOver();
   }
 }
 
@@ -320,13 +351,14 @@ function victory() {
 //viser game over skærmen
 function gameOver() {
   console.log("The game is lost");
-  document.querySelector("#game_over").classList.remove("hidden");
+  // document.querySelector("#game_over").classList.remove("hidden");
   stopAll();
 }
 
 // stopper alle aniamtioner.
 function stopAll() {
   console.log("stopAll");
+  gameRunning = false;
 
   // document.querySelector("#medieval_music").pause();
 
@@ -356,6 +388,9 @@ function preventClicks() {
 }
 
 function stopAnimations() {
+  //hvis timeren ikke er slukket.
+  document.querySelector("#time_container").classList.remove("timerOn");
+
   document
     .querySelector("#sprite_container01")
     .classList.remove(
@@ -366,7 +401,7 @@ function stopAnimations() {
     );
   document
     .querySelector("#sprite_container02")
-    .classList.remove("updown01,updown02,updown03");
+    .classList.remove("updown01", "updown02", "updown03");
   // How do I know what animation I am removing...? remove all of them?
   document
     .querySelector("#sprite_container03")
@@ -382,4 +417,19 @@ function stopAnimations() {
   document
     .querySelector("#sprite_container05")
     .classList.remove("updown01", "updown02", "updown03");
+
+  hideSprites();
+}
+
+function hideSprites() {
+  document.querySelector("#sprite_container01").classList.add("hidden");
+  document.querySelector("#sprite_container02").classList.add("hidden");
+  document.querySelector("#sprite_container03").classList.add("hidden");
+  document.querySelector("#sprite_container04").classList.add("hidden");
+  document.querySelector("#sprite_container05").classList.add("hidden");
+
+  // document.querySelector("#hp_container01").classList.add("hidden");
+  // document.querySelector("#hp_container02").classList.add("hidden");
+  // document.querySelector("#hp_container03").classList.add("hidden");
+  // document.querySelector("#pointman").classList.add("hidden");
 }
