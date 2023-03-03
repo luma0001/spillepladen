@@ -55,6 +55,17 @@ img {
   display: none;
 }
 
+button {
+  background: brown;
+  padding: 1px;
+  color: white;
+  z-index: 109;
+}
+
+.scroll {
+  z-index: 100;
+}
+
 #screen {
   position: absolute;
   aspect-ratio: 16/9;

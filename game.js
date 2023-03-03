@@ -4,7 +4,6 @@ window.addEventListener("load", preStart);
 
 // få styr på UIgriddet - eh...
 // få overlay skærmene til at se pæne ud
-// elementer der stadig kører efter slut"
 // problemer med random positions automatisk... grundet ting
 //Mine lyde loader aldrig....
 
@@ -52,16 +51,8 @@ function start() {
 }
 
 function showSprites() {
-  document.querySelector("#sprite_container01").classList.remove("hidden");
-  document.querySelector("#sprite_container02").classList.remove("hidden");
-  document.querySelector("#sprite_container03").classList.remove("hidden");
-  document.querySelector("#sprite_container04").classList.remove("hidden");
-  document.querySelector("#sprite_container05").classList.remove("hidden");
-
-  // document.querySelector("#hp_container01").classList.remove("hidden");
-  // document.querySelector("#hp_container02").classList.remove("hidden");
-  // document.querySelector("#hp_container03").classList.remove("hidden");
-  // document.querySelector("#pointman").classList.remove("hidden");
+  document.querySelector("#game_ui").classList.remove("hidden");
+  document.querySelector("#game_elements").classList.remove("hidden");
 }
 
 function showHP() {
@@ -280,11 +271,11 @@ function incrementPoints() {
 
 // opdater det nye point
 function displayPoints() {
-  // if (points > 10) {
-  //   victory();
-  // } else {
-  //   document.querySelector("#points").textContent = points;
-  // }
+  if (points > 10) {
+    victory();
+  } else {
+    document.querySelector("#points").textContent = points;
+  }
   document.querySelector("#points").textContent = points;
 }
 
@@ -351,7 +342,7 @@ function victory() {
 //viser game over skærmen
 function gameOver() {
   console.log("The game is lost");
-  // document.querySelector("#game_over").classList.remove("hidden");
+  document.querySelector("#game_over").classList.remove("hidden");
   stopAll();
 }
 
@@ -422,14 +413,6 @@ function stopAnimations() {
 }
 
 function hideSprites() {
-  document.querySelector("#sprite_container01").classList.add("hidden");
-  document.querySelector("#sprite_container02").classList.add("hidden");
-  document.querySelector("#sprite_container03").classList.add("hidden");
-  document.querySelector("#sprite_container04").classList.add("hidden");
-  document.querySelector("#sprite_container05").classList.add("hidden");
-
-  // document.querySelector("#hp_container01").classList.add("hidden");
-  // document.querySelector("#hp_container02").classList.add("hidden");
-  // document.querySelector("#hp_container03").classList.add("hidden");
-  // document.querySelector("#pointman").classList.add("hidden");
+  document.querySelector("#game_elements").classList.add("hidden");
+  document.querySelector("#game_ui").classList.add("hidden");
 }
