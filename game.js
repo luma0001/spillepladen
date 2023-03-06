@@ -18,6 +18,7 @@ let spriteClicked;
 let gameRunning = false;
 
 function preStart() {
+  console.log("preStart");
   //søger for alt er stoppet
   stopAll();
   //gør "START SPILLET fletet synligt"
@@ -28,11 +29,12 @@ function preStart() {
   document.querySelector("#start_screen").classList.remove("hidden");
   // document.querySelector("#start_screen").classList.add("fade_in");
 
-  document.querySelector("#start_game").addEventListener("onclick", transition);
+  // document.querySelector("#start_game").addEventListener("onclick", transition);
 }
 
 //Spiller en fade animation før spillet starter
-function transition() {
+function transition01() {
+  console.log("transition01");
   document.querySelector("#start_screen").classList.add("slow_fade");
   document
     .querySelector("#start_screen")
@@ -46,7 +48,12 @@ function start() {
 
   gameRunning = true;
 
-  // document.querySelector("#medieval_music").play();
+  document.querySelector("#start_screen").classList.remove("slow_fade");
+  document
+    .querySelector("#start_screen")
+    .removeEventListener("animationend", start);
+
+  document.querySelector("#medieval_music").play();
   // document.querySelector("#medieval_music").loop()= true;
 
   console.log("Start");
@@ -351,8 +358,18 @@ function victory() {
   ).textContent = `Congratulations you got: ${points} points`;
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#level_complete").classList.add("fade_in");
+  document.querySelector("#yay").play();
 
   stopAll();
+}
+
+function transition02() {
+  console.log("fade mother fucker fade");
+  document.querySelector("#level_complete").classList.remove("fade_in");
+  document.querySelector("#level_complete").classList.add("slow_fade");
+  document
+    .querySelector("#level_complete")
+    .addEventListener("animationend", preStart);
 }
 
 //viser game over skærmen
@@ -362,6 +379,7 @@ function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("fade_in");
   // document.document.querySelector("#game_over").addEventListener("animationend",...)
+  document.querySelector("#arrow").play();
 
   stopAll();
 }
@@ -371,7 +389,7 @@ function stopAll() {
   console.log("stopAll");
   gameRunning = false;
 
-  // document.querySelector("#medieval_music").pause();
+  document.querySelector("#medieval_music").pause();
 
   //deaktiver basis animationerne
   stopAnimations();
