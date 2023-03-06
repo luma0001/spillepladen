@@ -30,6 +30,11 @@ function preStart() {
   // document.querySelector("#start_screen").classList.add("fade_in");
 
   // document.querySelector("#start_game").addEventListener("onclick", transition);
+
+  //gør start-spil knappen aktiv
+  document
+    .querySelector("#startButton")
+    .addEventListener("click", transition01);
 }
 
 //Spiller en fade animation før spillet starter
@@ -80,6 +85,9 @@ function start() {
 
   //aktiver tiden
   beginTimer();
+
+  //Forhindre kliks
+  stopAllButtons();
 }
 
 function showSprites() {
@@ -92,6 +100,14 @@ function showHP() {
   document.querySelector("#hp_container1").classList.remove("hidden");
   document.querySelector("#hp_container2").classList.remove("hidden");
   document.querySelector("#hp_container3").classList.remove("hidden");
+}
+
+function stopAllButtons() {
+  document
+    .querySelector("#startButton")
+    .removeEventListener("click", transition01);
+  document.querySelector("#lostButton").removeEventListener("click", start);
+  document.querySelector("#winButton").removeEventListener("click", preStart);
 }
 
 function activateAnimations() {
@@ -358,19 +374,22 @@ function victory() {
   ).textContent = `Congratulations you got: ${points} points`;
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#level_complete").classList.add("fade_in");
+
+  document.querySelector("#winButton").addEventListener("click", preStart);
+
   document.querySelector("#yay").play();
 
   stopAll();
 }
 
-function transition02() {
-  console.log("fade mother fucker fade");
-  document.querySelector("#level_complete").classList.remove("fade_in");
-  document.querySelector("#level_complete").classList.add("slow_fade");
-  document
-    .querySelector("#level_complete")
-    .addEventListener("animationend", preStart);
-}
+// function transition02() {
+//   console.log("fade mother fucker fade");
+//   document.querySelector("#level_complete").classList.remove("fade_in");
+//   document.querySelector("#level_complete").classList.add("slow_fade");
+//   document
+//     .querySelector("#level_complete")
+//     .addEventListener("animationend", preStart);
+// }
 
 //viser game over skærmen
 function gameOver() {
@@ -378,6 +397,9 @@ function gameOver() {
 
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("fade_in");
+
+  document.querySelector("#lostButton").addEventListener("click", start);
+
   // document.document.querySelector("#game_over").addEventListener("animationend",...)
   document.querySelector("#arrow").play();
 
