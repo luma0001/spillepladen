@@ -3,9 +3,13 @@
 window.addEventListener("load", preStart);
 
 // få styr på UIgriddet - eh...
-// få overlay skærmene til at se pæne ud
+
+// Victory knappen trykker også på Start...
+// LOOSE CONDITIONS og SKRIFT
+// reset OG VIS points når du "prøver igen" efter at have spillet.
+// musikken er væk!!
+
 // problemer med random positions automatisk... grundet ting
-//Mine lyde loader aldrig....
 
 let points;
 let lives;
@@ -18,13 +22,26 @@ function preStart() {
   stopAll();
   //gør "START SPILLET fletet synligt"
 
-  document.querySelector("#start_screen").classList.remove("hidden");
+  //Reset overlay screens...
   document.querySelector("#level_complete").classList.add("hidden");
+  document.querySelector("#level_complete").classList.remove("fade_in");
+  document.querySelector("#start_screen").classList.remove("hidden");
+  // document.querySelector("#start_screen").classList.add("fade_in");
+
+  document.querySelector("#start_game").addEventListener("onclick", transition);
+}
+
+//Spiller en fade animation før spillet starter
+function transition() {
+  document.querySelector("#start_screen").classList.add("slow_fade");
+  document
+    .querySelector("#start_screen")
+    .addEventListener("animationend", start);
 }
 
 function start() {
   //genstart liv mm.
-  points = 0;
+  points = 9;
   lives = 3;
 
   gameRunning = true;
@@ -34,6 +51,9 @@ function start() {
 
   console.log("Start");
 
+  //Reset overlay screens...
+  document.querySelector("#game_over").classList.remove("fade_in");
+  document.querySelector("#start_screen").classList.remove("fade_in");
   document.querySelector("#start_screen").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
 
@@ -43,7 +63,7 @@ function start() {
   showHP();
 
   //gem alle 'overlay' skærme
-  hideOverlayScreens();
+  // hideOverlayScreens();
 
   //aktiver basis animationerne
   activateAnimations();
@@ -132,7 +152,6 @@ function sprite02Clicked() {
   sprite = "02";
   spriteClicked = sprite03Clicked;
 
-  // document.querySelector("#bell").play();
   spriteHit();
   incrementPoints();
 }
@@ -143,7 +162,6 @@ function sprite05Clicked() {
   sprite = "05";
   spriteClicked = sprite05Clicked;
 
-  // document.querySelector("#bell").play();
   spriteHit();
   incrementPoints();
 }
@@ -154,7 +172,7 @@ function sprite03Clicked() {
   sprite = "03";
   spriteClicked = sprite04Clicked;
 
-  // document.querySelector("#woman_scream").play();
+  document.querySelector("#woman_scream").play();
   spriteHit();
   looseLife();
 }
@@ -164,7 +182,7 @@ function sprite04Clicked() {
   sprite = "04";
   spriteClicked = sprite04Clicked;
 
-  // document.querySelector("#man_scream").play();
+  document.querySelector("#man_scream").play();
   spriteHit();
   looseLife();
 }
@@ -269,11 +287,6 @@ function incrementPoints() {
 
 // opdater det nye point
 function displayPoints() {
-  if (points > 10) {
-    victory();
-  } else {
-    document.querySelector("#points").textContent = points;
-  }
   document.querySelector("#points").textContent = points;
 }
 
@@ -337,6 +350,8 @@ function victory() {
     "#win"
   ).textContent = `Congratulations you got: ${points} points`;
   document.querySelector("#level_complete").classList.remove("hidden");
+  document.querySelector("#level_complete").classList.add("fade_in");
+
   stopAll();
 }
 
@@ -345,6 +360,9 @@ function gameOver() {
   console.log("The game is lost");
 
   document.querySelector("#game_over").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("fade_in");
+  // document.document.querySelector("#game_over").addEventListener("animationend",...)
+
   stopAll();
 }
 
@@ -414,6 +432,7 @@ function stopAnimations() {
   hideSprites();
 }
 
+//Gemmer alle sprites og UI så kun baggrund og slot kan ses.
 function hideSprites() {
   document.querySelector("#game_elements").classList.add("hidden");
   document.querySelector("#game_ui").classList.add("hidden");

@@ -7,13 +7,52 @@ body {
 }
 
 p {
-  color: white;
+  position: absolute;
+  /* top: 75%;
+  left: 7%; */
+  font-size: 200%;
+  z-index: 93;
+}
+
+#start_screen p {
+  top: 75%;
+  left: 7%;
+}
+
+#game_over p {
+  top: 75%;
+  left: 37%;
+}
+
+#level_complete p {
+  top: 75%;
+  left: 37%;
+}
+
+h2 {
+  font-size: 300%;
+  position: absolute;
+  z-index: 93;
+}
+
+#start_screen h2 {
+  top: 55%;
+  left: 40%;
+}
+
+#level_complete h2 {
+  top: 55%;
+  left: 44%;
+}
+
+#game_over h2 {
+  top: 55%;
+  left: 44%;
 }
 
 img {
   width: 100%;
 }
-
 /* Hvorfor er min skærmbilledet så stort? */
 /* d.14 put i grid her */
 
@@ -28,10 +67,12 @@ img {
 
 #start_screen {
   grid-area: 1/1;
+  /* position: relative; */
+  /* background-image: url("Images/scrollCUT.png"); */
   display: grid;
   justify-content: center;
   align-content: center;
-  z-index: 100;
+  z-index: 90;
 }
 
 #game_over {
@@ -39,6 +80,7 @@ img {
   display: grid;
   justify-content: center;
   align-content: center;
+  z-index: 90;
 }
 
 #level_complete {
@@ -46,6 +88,7 @@ img {
   display: grid;
   justify-content: center;
   align-content: center;
+  z-index: 90;
 }
 
 .hidden,
@@ -56,14 +99,19 @@ img {
 }
 
 button {
+  top: 100%;
+  left: 50%;
+  position: absolute;
   background: brown;
   padding: 1px;
   color: white;
-  z-index: 109;
+  z-index: 92;
 }
 
 .scroll {
-  z-index: 100;
+  position: relative;
+  top: 20%;
+  z-index: 91;
 }
 
 #screen {
@@ -208,14 +256,14 @@ button {
 #points {
   white-space: nowrap;
   text-align: right;
-  z-index: 90;
+  z-index: 80;
 }
 
 #pointman {
   height: 15%;
   width: 10%;
   position: absolute;
-  z-index: 90;
+  z-index: 80;
 }
 
 /* #point {
@@ -230,21 +278,21 @@ button {
   top: 32%;
   left: 1%;
   position: absolute;
-  z-index: 90;
+  z-index: 80;
 }
 #hp_container2 {
   width: 5%;
   top: 26%;
   left: 1%;
   position: absolute;
-  z-index: 90;
+  z-index: 80;
 }
 #hp_container3 {
   width: 5%;
   top: 20%;
   left: 1%;
   position: absolute;
-  z-index: 90;
+  z-index: 80;
 }
 
 /* STATE OVERLAY */
@@ -270,21 +318,21 @@ h2 {
   top: 0;
   left: 0;
   position: absolute;
-  z-index: 100%;
+  z-index: 90%;
 }
 
 #game_over {
   top: 0;
   left: 0;
   position: absolute;
-  z-index: 100;
+  z-index: 90;
 }
 
 #level_complete {
   top: 0;
   left: 0;
   position: absolute;
-  z-index: 100;
+  z-index: 90;
 }
 
 /* animations */
@@ -667,7 +715,14 @@ h2 {
 
 .fade_out {
   animation-name: fade_out;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.slow_fade {
+  animation-name: fade_out;
+  animation-duration: 2s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
@@ -678,6 +733,22 @@ h2 {
   }
   100% {
     opacity: 0;
+  }
+}
+
+.fade_in {
+  animation-name: fade_in;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -692,12 +763,12 @@ h2 {
   width: 10%;
   top: 80%;
   right: 0;
-  z-index: 99;
+  z-index: 80;
 }
 
 .timerOn {
   animation-name: timerOn;
-  animation-duration: 30s;
+  animation-duration: 10s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
