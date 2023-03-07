@@ -24,10 +24,7 @@ function preStart() {
   //gør "START SPILLET fletet synligt"
 
   //Reset overlay screens...
-  document.querySelector("#level_complete").classList.add("hidden");
-  document.querySelector("#level_complete").classList.remove("fade_in");
-  document.querySelector("#start_screen").classList.remove("hidden");
-  // document.querySelector("#start_screen").classList.add("fade_in");
+  resetOverlay();
 
   // document.querySelector("#start_game").addEventListener("onclick", transition);
 
@@ -35,6 +32,13 @@ function preStart() {
   document
     .querySelector("#startButton")
     .addEventListener("click", transition01);
+}
+
+function resetOverlay() {
+  document.querySelector("#level_complete").classList.add("hidden");
+  document.querySelector("#level_complete").classList.remove("fade_in");
+  document.querySelector("#start_screen").classList.remove("hidden");
+  // document.querySelector("#start_screen").classList.add("fade_in");
 }
 
 //Spiller en fade animation før spillet starter
@@ -64,11 +68,9 @@ function start() {
   console.log("Start");
 
   //Reset overlay screens...
-  document.querySelector("#game_over").classList.remove("fade_in");
-  document.querySelector("#start_screen").classList.remove("fade_in");
-  document.querySelector("#start_screen").classList.add("hidden");
-  document.querySelector("#game_over").classList.add("hidden");
+  resetOverlay2();
 
+  //makes all hidden sprites vissible
   showSprites();
 
   // //genaktiver alle hjertene
@@ -88,6 +90,13 @@ function start() {
 
   //Forhindre kliks
   stopAllButtons();
+}
+
+function resetOverlay2() {
+  document.querySelector("#game_over").classList.remove("fade_in");
+  document.querySelector("#start_screen").classList.remove("fade_in");
+  document.querySelector("#start_screen").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
 }
 
 function showSprites() {
