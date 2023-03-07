@@ -1,5 +1,13 @@
 /* baggrunde mm. */
 
+* {
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
 body {
   margin: 0;
   /* background-color: blueviolet;
@@ -768,7 +776,7 @@ h2 {
 
 .timerOn {
   animation-name: timerOn;
-  animation-duration: 10s;
+  animation-duration: 25s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-fill-mode: forwards;

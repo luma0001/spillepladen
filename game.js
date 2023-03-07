@@ -48,7 +48,7 @@ function transition01() {
 
 function start() {
   //genstart liv mm.
-  points = 9;
+  points = 0;
   lives = 3;
 
   gameRunning = true;
