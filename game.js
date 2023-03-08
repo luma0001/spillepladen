@@ -2,15 +2,6 @@
 
 window.addEventListener("load", preStart);
 
-// få styr på UIgriddet - eh...
-
-// Victory knappen trykker også på Start...
-// LOOSE CONDITIONS og SKRIFT
-// reset OG VIS points når du "prøver igen" efter at have spillet.
-// musikken er væk!!
-
-// problemer med random positions automatisk... grundet ting
-
 let points;
 let lives;
 let sprite;
@@ -18,7 +9,6 @@ let spriteClicked;
 let gameRunning = false;
 
 function preStart() {
-  console.log("preStart");
   //søger for alt er stoppet
   stopAll();
   //gør "START SPILLET fletet synligt"
@@ -43,7 +33,6 @@ function resetOverlay() {
 
 //Spiller en fade animation før spillet starter
 function transition01() {
-  console.log("transition01");
   document.querySelector("#start_screen").classList.add("slow_fade");
   document
     .querySelector("#start_screen")
@@ -64,8 +53,6 @@ function start() {
 
   document.querySelector("#medieval_music").play();
   // document.querySelector("#medieval_music").loop()= true;
-
-  console.log("Start");
 
   //Reset overlay screens...
   resetOverlay2();
@@ -129,28 +116,9 @@ function activateAnimations() {
     .classList.add("animationWall04");
   document.querySelector("#sprite_container04").classList.add("wickerman01");
   document.querySelector("#sprite_container05").classList.add("updown02");
-
-  // Aktivere en ny random animation når den sidste er slut
-
-  // document
-  //   .querySelector("#sprite_container01")
-  //   .addEventListener("animationiteration", restartAnimation);
-  // document
-  //   .querySelector("#sprite_container02")
-  //   .addEventListener("animationiteration", restartAnimation);
-  // document
-  //   .querySelector("#sprite_container03")
-  //   .addEventListener("animationiteration", restartAnimation);
-  // document
-  //   .querySelector("#sprite_container04")
-  //   .addEventListener("animationiteration", restartAnimation);
-  // document
-  //   .querySelector("#sprite_container05")
-  //   .addEventListener("animationiteration", restartAnimation);
 }
 
 function clickableSprites() {
-  console.log("clickable sprites");
   document
     .querySelector("#sprite_container01")
     .addEventListener("click", sprite01Clicked);
@@ -170,7 +138,6 @@ function clickableSprites() {
 
 //enemy01
 function sprite01Clicked() {
-  console.log(`#sprite_container${sprite}`);
   sprite = "01";
   spriteClicked = sprite01Clicked;
 
@@ -180,7 +147,6 @@ function sprite01Clicked() {
 
 //enemy02
 function sprite02Clicked() {
-  console.log(`#sprite_container${sprite}`);
   sprite = "02";
   spriteClicked = sprite03Clicked;
 
@@ -190,7 +156,6 @@ function sprite02Clicked() {
 
 //enemy03
 function sprite05Clicked() {
-  console.log(`#sprite_container${sprite}`);
   sprite = "05";
   spriteClicked = sprite05Clicked;
 
@@ -200,7 +165,6 @@ function sprite05Clicked() {
 
 //kvinden
 function sprite03Clicked() {
-  console.log(`#sprite_container${sprite}`);
   sprite = "03";
   spriteClicked = sprite04Clicked;
 
@@ -210,7 +174,6 @@ function sprite03Clicked() {
 }
 // præsten
 function sprite04Clicked() {
-  console.log(`#sprite_container${sprite}`);
   sprite = "04";
   spriteClicked = sprite04Clicked;
 
@@ -222,7 +185,6 @@ function sprite04Clicked() {
 function spriteHit() {
   // gør den ikke klikbar
   let container = document.querySelector(`#sprite_container${sprite}`);
-  console.log(container);
 
   // ...enemy${sprtie}Clicked
   container.removeEventListener("click", spriteClicked);
@@ -241,7 +203,6 @@ function spriteHit() {
 
 function spriteMoved() {
   let container = document.querySelector(`#sprite_container${sprite}`);
-  console.log(container);
 
   // animation end fjernes
   container.removeEventListener("animationend", spriteMoved);
@@ -262,7 +223,6 @@ function spriteMoved() {
 function restartAnimation() {
   // genstart animationen (SPECIFIKKE ANIMATIONER)
   let container = this;
-  console.log(this);
 
   if (sprite == "01") {
     container.classList.remove(
@@ -273,7 +233,6 @@ function restartAnimation() {
     );
     let itt = Math.floor(Math.random() * 3) + 1;
     container.classList.add(`knightWall0${itt}`);
-    console.log(itt);
 
     // kvinden
   } else if (sprite == "03") {
@@ -287,7 +246,6 @@ function restartAnimation() {
 
     let num = Math.floor(Math.random() * 3) + 1;
     container.classList.add(`animationWall0${num}`);
-    console.log(num);
 
     console.log("animataion Wall n");
   } else if (sprite == "04") {
@@ -295,7 +253,6 @@ function restartAnimation() {
     container.offsetLeft;
     let n = Math.floor(Math.random() * 2) + 1;
     container.classList.add(`wickerman0${n}`);
-    console.log(n);
 
     console.log("wickerman");
     // tårnridderne - sptire 02 og 05
@@ -306,7 +263,6 @@ function restartAnimation() {
     // POSITION 3 FÅS IKKE...
     let an = Math.floor(Math.random() * 2) + 1;
     container.classList.add(`updown0${an}`);
-    console.log(an);
   }
 }
 
@@ -332,7 +288,6 @@ function looseLife() {
 //then remove pulse and add the gone function. HOW?!
 
 function removeHeart() {
-  console.log(`#hp_container${lives}`);
   document.querySelector(`#hp_container${lives}`).classList.add("gone");
   document
     .querySelector(`#hp_container${lives}`)
@@ -340,7 +295,6 @@ function removeHeart() {
 }
 
 function hideHeart() {
-  console.log(`#hp_container${lives}`);
   //stop animation end event
   document
     .querySelector(`#hp_container${lives}`)
@@ -357,7 +311,6 @@ function hideHeart() {
 }
 
 function beginTimer() {
-  console.log("timer is ON!");
   document.querySelector("#time_container").classList.add("timerOn");
   document
     .querySelector("#time_container")
@@ -365,10 +318,9 @@ function beginTimer() {
 }
 
 function timesUp() {
-  console.log("times up");
   document.querySelector("#time_container").classList.remove("timerOn");
 
-  if (points > 10) {
+  if (points > 9) {
     victory();
   } else {
     gameOver();
@@ -376,7 +328,6 @@ function timesUp() {
 }
 
 function victory() {
-  console.log("level complete");
   //BLIVER ALDRIG AKTIVERET - HVORFOR?!
   document.querySelector(
     "#win"
@@ -391,25 +342,14 @@ function victory() {
   stopAll();
 }
 
-// function transition02() {
-//   console.log("fade mother fucker fade");
-//   document.querySelector("#level_complete").classList.remove("fade_in");
-//   document.querySelector("#level_complete").classList.add("slow_fade");
-//   document
-//     .querySelector("#level_complete")
-//     .addEventListener("animationend", preStart);
-// }
-
 //viser game over skærmen
-function gameOver() {
-  console.log("The game is lost");
 
+function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("fade_in");
 
   document.querySelector("#lostButton").addEventListener("click", start);
 
-  // document.document.querySelector("#game_over").addEventListener("animationend",...)
   document.querySelector("#arrow").play();
 
   stopAll();
@@ -417,7 +357,6 @@ function gameOver() {
 
 // stopper alle aniamtioner.
 function stopAll() {
-  console.log("stopAll");
   gameRunning = false;
 
   document.querySelector("#medieval_music").pause();
