@@ -10,14 +10,10 @@ img {
 
 body {
   margin: 0;
-  /* background-color: blueviolet;
-  background-size: cover; */
 }
 
 p {
   position: absolute;
-  /* top: 75%;
-  left: 7%; */
   font-size: 200%;
   z-index: 93;
 }
@@ -75,8 +71,6 @@ img {
 
 #start_screen {
   grid-area: 1/1;
-  /* position: relative; */
-  /* background-image: url("Images/scrollCUT.png"); */
   display: grid;
   justify-content: center;
   align-content: center;
@@ -202,8 +196,7 @@ button {
 #sprite_container01 {
   width: 10%;
   position: absolute;
-  /* top: 65%;
-  left: 30%; */
+
   z-index: 43;
 }
 
@@ -211,8 +204,7 @@ button {
 #sprite_container02 {
   width: 10%;
   position: absolute;
-  /* top: 40%;
-  left: 67%; */
+
   z-index: 21;
 }
 
@@ -220,8 +212,7 @@ button {
 #sprite_container03 {
   width: 6%;
   position: absolute;
-  /* top: 60%;
-  left: 60%;*/
+
   z-index: 44;
 }
 
@@ -238,8 +229,7 @@ button {
 #sprite_container05 {
   width: 10%;
   position: absolute;
-  /* top: 35%;
-  left: 45%; */
+
   z-index: 25;
 }
 
@@ -258,12 +248,13 @@ button {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 0.1em;
-  /* position: relative; */
 }
 
 #points {
   white-space: nowrap;
   text-align: right;
+  font-size: 200%;
+  color: white;
   z-index: 80;
 }
 
