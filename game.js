@@ -52,7 +52,6 @@ function start() {
     .removeEventListener("animationend", start);
 
   document.querySelector("#medieval_music").play();
-  // document.querySelector("#medieval_music").loop()= true;
 
   //Reset overlay screens...
   resetOverlay2();
